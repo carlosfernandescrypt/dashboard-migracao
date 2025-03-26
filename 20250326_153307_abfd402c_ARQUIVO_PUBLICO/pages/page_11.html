@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validação: Calendário de datas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { padding-top: 20px; padding-bottom: 50px; }
+        .validation-card { margin-bottom: 20px; }
+        .error-details { 
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            white-space: pre-wrap;
+        }
+        .navbar { position: fixed; bottom: 0; width: 100%; z-index: 100; }
+        .approval-btn { margin-top: 15px; }
+        .nav-bottom { 
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #f8f9fa;
+            border-top: 1px solid #ddd;
+            padding: 10px 0;
+            z-index: 1000;
+        }
+        .page-container { margin-bottom: 60px; }
+    </style>
+</head>
+<body>
+    <div class="container page-container">
+
+        <h1 class="mb-4">Detalhes da Validação</h1>
+        <div class="card validation-card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Calendário de datas</h5>
+                <span id="pageStatusBadge" class="badge bg-danger">Inválida</span>
+            </div>
+            <div class="card-body">
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <strong>URL Original:</strong> 
+                        <a href="https://www.arquivopublico.df.gov.br/calendario-de-datas" target="_blank" class="btn btn-sm btn-outline-primary">https://www.arquivopublico.df.gov.br/calendario-de-datas</a>
+                    </div>
+                    <div class="col-md-6">
+                        <strong>URL Migrada:</strong> 
+                        <a href="https://arquivopublico-hml.df.gov.br:8443/calendario-de-datas" target="_blank" class="btn btn-sm btn-outline-primary">https://arquivopublico-hml.df.gov.br:8443/calendario-de-datas</a>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <strong>Timestamp:</strong> 2025-03-25 20:14:44
+                </div>
+                
+                <div class="mb-3">
+                    <strong>Scores de Similaridade:</strong>
+                    <ul class="list-group">
+                        <li class="list-group-item">Conteúdo: 18%</li>
+                        <li class="list-group-item">Estrutura: 10%</li>
+                    </ul>
+                </div>
+                
+                <h5 class="mt-4 mb-3">Erros Encontrados:</h5>
+                <ul class="list-group">
+<li class="list-group-item text-danger">Collapsible Mismatch: Diferenças nos colapsáveis:
+Seção 1 (Aniversário das RAS): Conteúdo diferente (Similaridade: 36.00%)
+Alterado de '3 de janeiro de 2005 criação do itapoã (ra xxviii) 10 de janeiro de 1994 criação do' para 'ra cidade aniversário i plano piloto 21/04/1960 ii gama 12/10/1960 iii taguatinga 05/06/1958 iv brazlândia 05/06/1933 v sobradinho 13/05/1960 vi planaltina 19/08/1859 vii paranoá 25/10/1957 viii núcleo bandeirante 19/12/1956 ix ceilândia 27/03/1971 x guará 05/05/1969 xi cruzeiro 30/11/1959 xii samambaia 25/10/1989 xiii santa maria 10/02/1993 xiv são sebastião 25/06/1993 xv recanto das emas 28/07/1993 xvi lago sul 30/08/1960 xvii riacho fundo 13/03/1990 xviii'
+Alterado de '(ra xviii) 10 de janeiro de 1994 criação do lago sul (ra xvi) 15 de janeiro de 1959 morte de bernardo sayão 19 de janeiro de 1967 criação do núcleo bandeirantes (ra viii) 19 de janeiro de 1967 criação de sobradinho (ra v) 19 de janeiro de 1967 criação de taguatinga (ra iii) 27 de janeiro de 1994 criação da' para '10/01/1960 xix'
+Alterado de '(ra xix) 27 de janeiro de 2004 criação de' para '03/11/1956 xx águas claras 06/05/2003 xxi riacho fundo 2 06/05/1995 xxii sudoeste/octogonal 06/05/2003 xxiii varjão 19/04/1991 xxiv park way 13/03/1961 xxv estrutural/scia 27/01/2004 xxvi'
+Alterado de '(ra xxvi) 27 de janeiro de 2004 criação' para '11/11/1989 xxvii jardim botânico 01/09/2004 xxviii itapoã 07/07/2005 xxix sia 14/07/2005 xxx vicente pires 26/05/2009 xxxi fercal 11/09/1956 xxxii sol nascente/pôr'
+Alterado de 'scia (ra xxv) 29 de janeiro de 2012 criação da fercal (ra xxxi)' para 'sol 19/10/2019 xxxiii arniqueira 01/10/2019 xxxiv arapoanga 01/12/2022 xxxv água quente 01/12/2022'</li><li class="list-group-item text-danger">Content Mismatch: Conteúdo principal não corresponde ao original (Similaridade: 18.00%):
+Removido: 'aniversário das ras ra cidade aniversário i plano piloto 21/04/1960 ii gama 12/10/1960 iii taguatinga 05/06/1958 iv brazlândia 05/06/1933 v sobradinho 13/05/1960 vi planaltina 19/08/1859 vii paranoá 25/10/1957 viii núcleo bandeirante 19/12/1956 ix ceilândia 27/03/1971 x guará 05/05/1969 xi cruzeiro 30/11/1959 xii samambaia 25/10/1989 xiii santa maria 10/02/1993 xiv são sebastião 25/06/1993 xv recanto das emas 28/07/1993 xvi lago sul 30/08/1960 xvii riacho fundo 13/03/1990 xviii lago norte 10/01/1960 xix candangolândia 03/11/1956 xx águas claras 06/05/2003 xxi riacho fundo 2 06/05/1995 xxii sudoeste/octogonal 06/05/2003 xxiii varjão 19/04/1991 xxiv park way 13/03/1961 xxv estrutural/scia 27/01/2004 xxvi sobradinho ii 11/11/1989 xxvii jardim botânico 01/09/2004 xxviii itapoã 07/07/2005 xxix sia 14/07/2005 xxx vicente pires 26/05/2009 xxxi fercal 11/09/1956 xxxii sol nascente/pôr do sol 19/10/2019 xxxiii arniqueira 01/10/2019 xxxiv arapoanga 01/12/2022 xxxv água quente 01/12/2022 janeiro 3 de janeiro de 2005 criação do itapoã (ra xxviii) 10 de janeiro de 1994 criação do lago norte (ra xviii) 10 de janeiro de 1994 criação do lago sul (ra xvi) 15 de janeiro de 1959 morte de bernardo sayão 19 de janeiro de 1967 criação do núcleo bandeirantes (ra viii) 19 de janeiro de 1967 criação de sobradinho (ra v) 19 de janeiro de 1967 criação de taguatinga (ra iii) 27 de janeiro de 1994 criação da candangolândia (ra xix) 27 de janeiro de 2004 criação de sobradinho ii (ra xxvi) 27 de janeiro de 2004 criação do scia (ra xxv) 29 de janeiro de 2012 criação da fercal (ra xxxi) fevereiro 10 de fevereiro de 1993 criação da santa maria(ra xiii) março 14 de março de 1985 aniversário do arpdf 14 de março de 2018 lançamento da publicação “goyaz – guia de cartografia histórica” 16 de março de 1957 resultado final do concurso para o plano piloto de brasília (lúcio costa) abril 19 de abril de 1991 criação do varjão (ra xxiii) maio 3 de maio de 1957 primeira missa celebrada em brasília 6 de maio de 2003 criação de águas claras (ra xx) 6 de maio de 2003 criação do riacho fundo (ra xxi) 6 de maio de 2003 criação do sudoeste/octogonal (ra xxii) 26 de maio de 2008 criação de vicente pires (ra xxx) junho 5 de junho de 1958 criação de taguatinga (ra iii) 25 de junho de 1993 criação de são sebastião (ra xiv) 28 de junho de 1958 inauguração da igreja nossa senhora (igrejinha) 30 de junho de 1958 brasília palace hotel julho 14 de julho de 2005 criação do sia (ra xxix) 28 de julho de 1993 criação de recanto das emas (ra xv) agosto 14 de agosto de 2019 criação do sol nascente e pôr do sol (ra xxix) 19 de agosto de 1859 criação de planaltina (ra vi) setembro 01 de setembro de 2004 criação do jardim botânico (ra xxvii) 19 de setembro de 1956 criação do plano piloto (ra i) 30 de setembro de 2019 criação da arniqueira (ra xxxiii) outubro 12 de outubro de 1960 criação do gama (ra ii) 25 de outubro de 1989 criação de brazlândia (ra iv) 25 de outubro de 1989 criação do guará (ra x) 25 de outubro de 1989 criação de ceilândia (ra ix) 25 de outubro de 1989 criação do cruzeiro ( ra xi) 25 de outubro de 1989 criação da samambaia (ra xii) novembro novembro de 1960 gravação da obra sinfônica “brasília – sinfonia da alvorada”, composta por vinicius de moraes e tom jobim. dezembro 15 de dezembro de 1993 criação do riacho fundo (ra xvii) 29 de dezembro de 2003 criação do park way (ra xxiv) 10 de dezembro de 1957 criação do paranoá (ra vii) 21 de dezembro de 2022 criação do arapoanga ( ra xxxiv) 21 de dezembro de 2022 criação de água quente ( ra xxxv) voltar ao topo'</li><li class="list-group-item text-danger">HTML Structure Mismatch: Estrutura HTML divergente (Similaridade: 10.00% < 80.0%)</li>
+                </ul>
+                
+                <div class="approval-btn">
+                    <button id="approveBtn" class="btn btn-success" onclick="approvePage('page_11')">
+                        Aprovar Página
+                    </button>
+                    <button id="rejectBtn" class="btn btn-danger ms-2" onclick="rejectPage('page_11')">
+                        Rejeitar Página
+                    </button>
+                    <div id="approvalStatus" class="mt-2"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-4">
+            <a href="../index.html" class="btn btn-primary">Voltar para o Dashboard</a>
+        </div>
+    </div>
+    
+    <div class="nav-bottom">
+        <div class="container">
+            <div class="d-flex justify-content-between">
+                <span class="text-muted">Validação de migração de páginas</span>
+                <span class="text-muted">Gerado em: 26/03/2025 15:33:07</span>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Variáveis de configuração
+        const reportId = 'abfd402c';
+        const pageId = 'page_11';
+        
+        // Função para buscar aprovações da API
+        async function fetchApprovals() {
+            try {
+                const response = await fetch(`/api/approvals/${reportId}/${pageId}`);
+                if (!response.ok) {
+                    throw new Error('Erro ao buscar aprovações');
+                }
+                return await response.json();
+            } catch (error) {
+                console.error('Erro:', error);
+                return {};
+            }
+        }
+        
+        // Função para enviar aprovação para a API
+        async function sendApproval(status) {
+            try {
+                const response = await fetch(`/api/approvals/${reportId}/${pageId}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        status: status,
+                        user: 'validador'
+                    }),
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Erro ao enviar aprovação');
+                }
+                
+                return await response.json();
+            } catch (error) {
+                console.error('Erro:', error);
+                alert('Erro ao enviar aprovação. Tente novamente.');
+                return null;
+            }
+        }
+        
+        // Gerenciamento de aprovação usando a API
+        async function approvePage() {
+            const result = await sendApproval('approved');
+            if (result) {
+                updateUI();
+                alert("Página aprovada! Esta página aparecerá na seção de páginas aprovadas quando você voltar ao dashboard.");
+            }
+        }
+        
+        async function rejectPage() {
+            const result = await sendApproval('rejected');
+            if (result) {
+                updateUI();
+            }
+        }
+        
+        async function updateUI() {
+            const approval = await fetchApprovals();
+            const status = document.getElementById('approvalStatus');
+            const approveBtn = document.getElementById('approveBtn');
+            const rejectBtn = document.getElementById('rejectBtn');
+            const statusBadge = document.getElementById('pageStatusBadge');
+            
+            if (approval && approval.status) {
+                if (approval.status === 'approved') {
+                    status.innerHTML = '<div class="alert alert-success">Página aprovada!</div>';
+                    statusBadge.textContent = 'Aprovada';
+                    statusBadge.classList.remove('bg-danger');
+                    statusBadge.classList.add('bg-success');
+                    approveBtn.disabled = true;
+                    rejectBtn.disabled = false;
+                } else {
+                    status.innerHTML = '<div class="alert alert-danger">Página rejeitada!</div>';
+                    statusBadge.textContent = 'Rejeitada';
+                    statusBadge.classList.remove('bg-success');
+                    statusBadge.classList.add('bg-danger');
+                    approveBtn.disabled = false;
+                    rejectBtn.disabled = true;
+                }
+            } else {
+                status.innerHTML = '';
+                statusBadge.textContent = 'Inválida';
+                statusBadge.classList.remove('bg-success');
+                statusBadge.classList.add('bg-danger');
+                approveBtn.disabled = false;
+                rejectBtn.disabled = false;
+            }
+        }
+        
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', updateUI);
+    </script>
+</body>
+</html>

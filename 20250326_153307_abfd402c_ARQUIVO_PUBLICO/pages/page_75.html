@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validação: Arquivo Público Mineiro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { padding-top: 20px; padding-bottom: 50px; }
+        .validation-card { margin-bottom: 20px; }
+        .error-details { 
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            white-space: pre-wrap;
+        }
+        .navbar { position: fixed; bottom: 0; width: 100%; z-index: 100; }
+        .approval-btn { margin-top: 15px; }
+        .nav-bottom { 
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #f8f9fa;
+            border-top: 1px solid #ddd;
+            padding: 10px 0;
+            z-index: 1000;
+        }
+        .page-container { margin-bottom: 60px; }
+    </style>
+</head>
+<body>
+    <div class="container page-container">
+
+        <h1 class="mb-4">Detalhes da Validação</h1>
+        <div class="card validation-card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Arquivo Público Mineiro</h5>
+                <span id="pageStatusBadge" class="badge bg-danger">Inválida</span>
+            </div>
+            <div class="card-body">
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <strong>URL Original:</strong> 
+                        <a href="https://www.arquivopublico.df.gov.br/category/cartografia/arquivo-publico-mineiro" target="_blank" class="btn btn-sm btn-outline-primary">https://www.arquivopublico.df.gov.br/category/cartografia/arquivo-publico-mineiro</a>
+                    </div>
+                    <div class="col-md-6">
+                        <strong>URL Migrada:</strong> 
+                        <a href="https://arquivopublico-hml.df.gov.br:8443/mapa-dos-limites-de-goias-e-minas-gerais" target="_blank" class="btn btn-sm btn-outline-primary">https://arquivopublico-hml.df.gov.br:8443/mapa-dos-limites-de-goias-e-minas-gerais</a>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <strong>Timestamp:</strong> 2025-03-25 20:48:51
+                </div>
+                
+                <div class="mb-3">
+                    <strong>Scores de Similaridade:</strong>
+                    <ul class="list-group">
+                        <li class="list-group-item">Conteúdo: 7%</li>
+                        <li class="list-group-item">Estrutura: 10%</li>
+                    </ul>
+                </div>
+                
+                <h5 class="mt-4 mb-3">Erros Encontrados:</h5>
+                <ul class="list-group">
+<li class="list-group-item text-danger">Content Mismatch: Conteúdo principal não corresponde ao original (Similaridade: 7.00%):
+Removido: 'arquivo público mineiro mapa dos limites de goiás e minas gerais $(".imagem-superior-internas").css({'background-image':'url("http://www.arpdf.df.gov.br/wp-content/uploads/2018/03/head_1-1.jpg")'});'
+Alterado de 'arquivo...' para 'arquivo histórico do exército: “mapa dos limites da capitania de goiás” e “mapa geral dos limites da capitania de goiás” para outras informações sobre o contexto político, econômico e social da elaboração deste mapa, o segundo de “goiaz” e que serviu de base para a cópia aqui apresentada, consultar o artigo “primeiros mapas da capitania de goiás”, do historiador wilson vieira júnior, neste guia p. 32. leitura paleográfica: ilm.o e ex.mo sn.õr conde dos arcos / d. marcos de noronha / governador, e capitam / general / de guayás / quando de ytu, onde foi juiz de fora, acompanhei ao d. or agostinho luiz ribeiro vieira, q vinha por ouvidor a estas minas, fiz hum map / pa da dicta derrota, o qual vendo v. ex.cia ficou do seo agrado, naõ porq o cenhecesse com aquella perfeiçaõ, q requer hua tal obra, más porq na incerteza do in / terior destes certoens pode se ao menos ter hua tal qual idea mais apparente com a verdade, a qual podia ter sido mais aproximado o p. diogo soares da /companhia de jesus mathematico expedido expressamente da corte para isso; porem este naõ tinha passado do dictricto de tocantins, e o pouco, ou muyto, q ti / nha alcançado, naõ o tinha communicado nestas partes, de tal sorte, q outro governador, q precedeo a v. ex.cia por occasiaõ do contracto dos diamantes de piloens, ao / chegar a esta villa se suppunha estar na parallela da bahia de todos os sanctos, quando há mais da tres graos de differença em latitud, e assim v. ex. cia, tendo visto / tambem varios borroens meos, e apontamentos feitos por informaçoens de varias partes do interior desta america (q) serviraõ a outrem para se adiantar) me / ordenou lhe fizesse hum mappa geral, por onde se podessem conhecer os limites desta capitania; para isso pedi tempo para melhor servir a v. ex.cia, e acompanhan / do novamente ao dicto d.or ouvidor na correiçaõ da comarca, examinei-a pessoalmente, e tomei as informaçoens, q me pareceraõ mais verosimeis, e assim pre / sentemente sirvo a v. ex.cia do presente mappa q como disse, poderá servir de idea, [rasura] os curioso conhecendo os meos erros apontaraõ a verdade, e eu terei a gloria / de ter sido o estimulo para q ai pareça. este mappa he feito deste modo: de sanctos guardando os pontos de longitud, e da latitud dos roteiros, e dos geógra / phos mais modernos, com a diligencia, q pode usar hum viandante de passagem, fiz a derrota até esta villa boa, a qual continuei depois até a natividade, / e recolhi-me outra vez a esta villa: a derrota das canoas de ararytaguaba até o cuyabá, e depois ao mato-grosso tanto por rios, como por terra, com a / occasiaõ da minha demora de onze mezes naquellas partes do embarque segui a informaçaõ dos melhores pilotos, q por lá andaõ, por isso naõ se me de / ve culpar o erro, como naõ me gloriaria do acerto se o tivesse alcançado, e q só se deve suppor naquella pessoa dotada de tantas virtudes mora / es, q excedem a sua mesma sabedoria, e ao ilustre da sua prosapia q naõ sabe obrar, senaõ acertos, e q se suppoem ter feito felixmente tal via / gem: a derrota, q [ ilegível, pela dobra no mapa, deste ponto até o fim da linha] / por informaçoens, q de lá me mandou o d.or joseph martins machado: a derrota, q vai de villa boa ate o cuyabá, foi feita pelo capitaõ mor / diogo joseph pereyra, como tambem a informaçaõ da nossa derrota para o gram pará com canoas do cuyabá subindo o mesmo rio, e buscar /outras vertentes no rio preto até dar com a primeira derrota do dicto joaõ de sousa de azevedo: o curso do rio das amazônas até o gram / pará [?] copia da navegaçaõ de monsieur de condemine, ao qual de deve todo o credito: a derrota do pontal da natividade pelo rio tocantins, e canaes chamados guarupés até o gram pará, he informaçaõ do capitaõ francisco de almeida descobridor das minas das arrayas, q fez tal / viagem: o mais he por outras informaçoens, e o mais interior naõ se sabe ainda, senaõ muyto confusamente; mas o q pertence a esta capitania / bravemente darei a v. ex.cia hum mappa em ponto maior, e com amior individuaçaõ, o q farei tambem, se, como supponho, me vier, a ordem pa / ra a abertura do novo caminho desta villa a cidade de s. paulo, e villa de sanctos, e nisto, e naquelles se me devem perdoar os erros porq naõ / saõ partos da minha presempçaõ, mas sim abortos da minha obediencia submettida a v. ex.cia, q deos guarde muytos annos. villa boa 6 de abril / de 1751. / de v. ex.cia / o mais humilde venerador, e criado / francisco tosi colombina [assinatura] explicaçaõ / [símbolo] cidade. [símbolo] villa. [símbolo] fortaleza. [símbolo] arrayal. [símbolo] sitio: § os pontinhos vermelhos denotaõ a derrota de sanctos, s. paulo e ytu até villa boa de guayás, e desta até a natividade: §. os / pontinhos amarellos demarcaõ a volta da natividade até villa boa: §. os pontinhos pretos de villa boa até o cuyabá demarcaõ a derrota, communicaçaõ destas duas villas, e esta con / tinua a mostrar-se até o mato-grosso, quando se vai por terra, porq quando se vai em canoa, se desce o rio cuyabá, e o dos porrudos, se sobe o paraguay, e o jauru até onde atravessa o ca / minho de terra, q se segue deixando as canoas. §. os pontinhos pretos desde irarytaguaba até o cuyabá pelos rios tiaté, pardo, camapoaã, cuchiim, taquari, paraguay, cheene, por / rudos, e cuyabá demarcaõ o caminho das canoas, q servem de communicaçaõ com a costa do mar de sanctos, e rio de janeiro, e o povoado de s. paulo. §. os pontinhos vermelho da / villa de cuyabá, q descendo pelas margens do mesmo rio, e dos porrudos, sobem o paraguay, e sapituba denotaõ o caminho, q fez joaõ de sousa de azevedo, quando varou por terra até o / rio sumidouro, pelo qual descendo, e pelos rios tapayos, e amazonas, foi ao gram pará, donde voltando subio pelo dicto amazonas, e madeira até o mato-grosso. §. os pontinhos ama / rellos da villa de cuyabá, q sobem pella margem do dicto rio, e atravessaõ por terra até dar no rio preto, e no dos arinos, denotaõ a viagem de canoas, q novamente se descobrio, e q faz com / municavel a dicta villa com a cidade do gram pará. §. os pontinhos pretos no rio tocantins, q principiaõ onde saõ dous sinaes de sitios, q começaõ as povoaçoens, ou roça do / gram pará, denotaõ a viagem, q a gente da natividade embarcando-se em canoas no portal effeituou, e chegando em onze dias até as dictas roças, e destas até os canaes, ou como / chamaõ guarupés, em dous dias, e por elles tres dias, q tudo fazem dezeseis até o gram pará; porem a subida se reputa impossivel, e a descida só se faz em tempo das cheas; mais facil se / suppoem a communicaçaõ desta villa com a cidade do gram pará embarcando-se dous dias de viagem abaixo no rio vermelho, q entra no rio-grande do caminho do cuyabá, q / com o nome de araguaya entra no tocantins: a sombra amarella demarca a capitania de guayás nos caminhos, q vem de s. paulo a esta villa, e desta vaõ a natividade e / voltaõ naõ se encontraõ matos de consideraçaõ mais, q o de mogi na comarca de s. paulo, e o mato grosso da meia ponte nesta capitania, q vaõ demarcados com arvoredos: os / mais, q se chamaõ capoens por serem pequenos, naõ se apontaõ: as terras, q se encontraõ, estaõ demarcadas: os sitios do caminho de s. paulo a esta villa naõ estaõ marcados / mas se apontaõ só os q se achaõ neste mappa em grande distancia do alistado; mas o mappa particular desta capitania em ponto maior se fará com mais individuaçaõ. fonte – arquivo público mineiro medidas – 78,2 cm × 53,7 cm data – 1751 localização – fundo secretaria do interior – si-002'</li><li class="list-group-item text-danger">HTML Structure Mismatch: Estrutura HTML divergente (Similaridade: 10.00% < 80.0%)</li>
+                </ul>
+                
+                <div class="approval-btn">
+                    <button id="approveBtn" class="btn btn-success" onclick="approvePage('page_75')">
+                        Aprovar Página
+                    </button>
+                    <button id="rejectBtn" class="btn btn-danger ms-2" onclick="rejectPage('page_75')">
+                        Rejeitar Página
+                    </button>
+                    <div id="approvalStatus" class="mt-2"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-4">
+            <a href="../index.html" class="btn btn-primary">Voltar para o Dashboard</a>
+        </div>
+    </div>
+    
+    <div class="nav-bottom">
+        <div class="container">
+            <div class="d-flex justify-content-between">
+                <span class="text-muted">Validação de migração de páginas</span>
+                <span class="text-muted">Gerado em: 26/03/2025 15:33:07</span>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Variáveis de configuração
+        const reportId = 'abfd402c';
+        const pageId = 'page_75';
+        
+        // Função para buscar aprovações da API
+        async function fetchApprovals() {
+            try {
+                const response = await fetch(`/api/approvals/${reportId}/${pageId}`);
+                if (!response.ok) {
+                    throw new Error('Erro ao buscar aprovações');
+                }
+                return await response.json();
+            } catch (error) {
+                console.error('Erro:', error);
+                return {};
+            }
+        }
+        
+        // Função para enviar aprovação para a API
+        async function sendApproval(status) {
+            try {
+                const response = await fetch(`/api/approvals/${reportId}/${pageId}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        status: status,
+                        user: 'validador'
+                    }),
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Erro ao enviar aprovação');
+                }
+                
+                return await response.json();
+            } catch (error) {
+                console.error('Erro:', error);
+                alert('Erro ao enviar aprovação. Tente novamente.');
+                return null;
+            }
+        }
+        
+        // Gerenciamento de aprovação usando a API
+        async function approvePage() {
+            const result = await sendApproval('approved');
+            if (result) {
+                updateUI();
+                alert("Página aprovada! Esta página aparecerá na seção de páginas aprovadas quando você voltar ao dashboard.");
+            }
+        }
+        
+        async function rejectPage() {
+            const result = await sendApproval('rejected');
+            if (result) {
+                updateUI();
+            }
+        }
+        
+        async function updateUI() {
+            const approval = await fetchApprovals();
+            const status = document.getElementById('approvalStatus');
+            const approveBtn = document.getElementById('approveBtn');
+            const rejectBtn = document.getElementById('rejectBtn');
+            const statusBadge = document.getElementById('pageStatusBadge');
+            
+            if (approval && approval.status) {
+                if (approval.status === 'approved') {
+                    status.innerHTML = '<div class="alert alert-success">Página aprovada!</div>';
+                    statusBadge.textContent = 'Aprovada';
+                    statusBadge.classList.remove('bg-danger');
+                    statusBadge.classList.add('bg-success');
+                    approveBtn.disabled = true;
+                    rejectBtn.disabled = false;
+                } else {
+                    status.innerHTML = '<div class="alert alert-danger">Página rejeitada!</div>';
+                    statusBadge.textContent = 'Rejeitada';
+                    statusBadge.classList.remove('bg-success');
+                    statusBadge.classList.add('bg-danger');
+                    approveBtn.disabled = false;
+                    rejectBtn.disabled = true;
+                }
+            } else {
+                status.innerHTML = '';
+                statusBadge.textContent = 'Inválida';
+                statusBadge.classList.remove('bg-success');
+                statusBadge.classList.add('bg-danger');
+                approveBtn.disabled = false;
+                rejectBtn.disabled = false;
+            }
+        }
+        
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', updateUI);
+    </script>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validação: Carta da capitania de Goiás – mapa dos julgados</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { padding-top: 20px; padding-bottom: 50px; }
+        .validation-card { margin-bottom: 20px; }
+        .error-details { 
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            white-space: pre-wrap;
+        }
+        .navbar { position: fixed; bottom: 0; width: 100%; z-index: 100; }
+        .approval-btn { margin-top: 15px; }
+        .nav-bottom { 
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #f8f9fa;
+            border-top: 1px solid #ddd;
+            padding: 10px 0;
+            z-index: 1000;
+        }
+        .page-container { margin-bottom: 60px; }
+    </style>
+</head>
+<body>
+    <div class="container page-container">
+
+        <h1 class="mb-4">Detalhes da Validação</h1>
+        <div class="card validation-card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Carta da capitania de Goiás – mapa dos julgados</h5>
+                <span id="pageStatusBadge" class="badge bg-danger">Inválida</span>
+            </div>
+            <div class="card-body">
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <strong>URL Original:</strong> 
+                        <a href="https://www.arquivopublico.df.gov.br/carta-da-capitania-de-goias-mapa-dos-julgados" target="_blank" class="btn btn-sm btn-outline-primary">https://www.arquivopublico.df.gov.br/carta-da-capitania-de-goias-mapa-dos-julgados</a>
+                    </div>
+                    <div class="col-md-6">
+                        <strong>URL Migrada:</strong> 
+                        <a href="https://arquivopublico-hml.df.gov.br:8443/2planta-de-uma-estrada-de-rodagem-de-goias-ao-coxim" target="_blank" class="btn btn-sm btn-outline-primary">https://arquivopublico-hml.df.gov.br:8443/2planta-de-uma-estrada-de-rodagem-de-goias-ao-coxim</a>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <strong>Timestamp:</strong> 2025-03-25 20:47:22
+                </div>
+                
+                <div class="mb-3">
+                    <strong>Scores de Similaridade:</strong>
+                    <ul class="list-group">
+                        <li class="list-group-item">Conteúdo: 39%</li>
+                        <li class="list-group-item">Estrutura: 41%</li>
+                    </ul>
+                </div>
+                
+                <h5 class="mt-4 mb-3">Erros Encontrados:</h5>
+                <ul class="list-group">
+<li class="list-group-item text-danger">Content Mismatch: Conteúdo principal não corresponde ao original (Similaridade: 39.00%):
+Alterado de 'carta da capitania' para 'planta de uma estrada de rodagem'
+Alterado de '– mapa dos julgados para a introdução geral deste mapa, consulte neste guia: arquivo histórico do exército: “carta ou plano geográfico da capitania de goiás – mapa dos julgados” esta é uma cópia sem os textos do original do “mapa dos julgados”. as informações a respeito dessa cópia são fornecidas na “leitura paleográfica”.' para 'ao coxim'
+Alterado de 'carta da capitania' para 'planta de uma estrada de rodagem'
+Alterado de 'levantada' para 'ao coxim.'
+Alterado de 'sargento mór thomaz' para '1° tenente'
+Alterado de 'souza: em 1778. desenhada por franklin antonio costa ferreira, tenente' para 'engenheiros, joaquim r. de m. jardim. 1866. explicação: [linha pontilhada] rumo da estrada projectada explorada [linha ondulada] estrada projectada [linha pontilhada] caminho existente copiada pelo cap. d.'
+Alterado de 'estado maior' para 'araújo e silva[?] arquivo militar, 14'
+Alterado de '1ª classe do exército. copiado' para 'novembro'
+Alterado de 'um exemplar existente na bibliotheca nacional. janeiro de 1919 – eugenio rio, desenhista da comissão rondon, copiou. confere – f. jaguaribe gomes de mattos chefe da secção de desenho da comissão rondon. confirmo a declaração do copista eugenio rio. biblioteca nacional, 3ªsecção em 16 de julho de 1919 [segue assinatura] referências: 1 – adonias, isa. mapas e planos manuscritos relativos ao brasil colonial conservados no ministério das relações exteriores (1500-1822). ministério das relações exteriores, serviço de documentação, rio de janeiro, 1960, p. 663-664. 2 – alencastre, josé martins pereira. anais da província de goiás. convênio sudeco/governo de goiás, 1979, p. 215-216. 3 – bertran, paulo. notícia geral da capitania de goiás em 1783, goiânia, icbc, 2010, p. 101. 4 – a engenharia em goiás – conselho regional de engenharia e agronomia de goiás. goiânia. crea-go, 2012.' para '1868'
+Alterado de '57,5' para '83'
+Alterado de '97,5' para '45'
+Alterado de '1919' para '1866'
+Alterado de 'co-go-10.01.2062' para 'co–go-10.01.2060'</li><li class="list-group-item text-danger">HTML Structure Mismatch: Estrutura HTML divergente (Similaridade: 41.00% < 80.0%)</li>
+                </ul>
+                
+                <div class="approval-btn">
+                    <button id="approveBtn" class="btn btn-success" onclick="approvePage('page_72')">
+                        Aprovar Página
+                    </button>
+                    <button id="rejectBtn" class="btn btn-danger ms-2" onclick="rejectPage('page_72')">
+                        Rejeitar Página
+                    </button>
+                    <div id="approvalStatus" class="mt-2"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-4">
+            <a href="../index.html" class="btn btn-primary">Voltar para o Dashboard</a>
+        </div>
+    </div>
+    
+    <div class="nav-bottom">
+        <div class="container">
+            <div class="d-flex justify-content-between">
+                <span class="text-muted">Validação de migração de páginas</span>
+                <span class="text-muted">Gerado em: 26/03/2025 15:33:07</span>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Variáveis de configuração
+        const reportId = 'abfd402c';
+        const pageId = 'page_72';
+        
+        // Função para buscar aprovações da API
+        async function fetchApprovals() {
+            try {
+                const response = await fetch(`/api/approvals/${reportId}/${pageId}`);
+                if (!response.ok) {
+                    throw new Error('Erro ao buscar aprovações');
+                }
+                return await response.json();
+            } catch (error) {
+                console.error('Erro:', error);
+                return {};
+            }
+        }
+        
+        // Função para enviar aprovação para a API
+        async function sendApproval(status) {
+            try {
+                const response = await fetch(`/api/approvals/${reportId}/${pageId}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        status: status,
+                        user: 'validador'
+                    }),
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Erro ao enviar aprovação');
+                }
+                
+                return await response.json();
+            } catch (error) {
+                console.error('Erro:', error);
+                alert('Erro ao enviar aprovação. Tente novamente.');
+                return null;
+            }
+        }
+        
+        // Gerenciamento de aprovação usando a API
+        async function approvePage() {
+            const result = await sendApproval('approved');
+            if (result) {
+                updateUI();
+                alert("Página aprovada! Esta página aparecerá na seção de páginas aprovadas quando você voltar ao dashboard.");
+            }
+        }
+        
+        async function rejectPage() {
+            const result = await sendApproval('rejected');
+            if (result) {
+                updateUI();
+            }
+        }
+        
+        async function updateUI() {
+            const approval = await fetchApprovals();
+            const status = document.getElementById('approvalStatus');
+            const approveBtn = document.getElementById('approveBtn');
+            const rejectBtn = document.getElementById('rejectBtn');
+            const statusBadge = document.getElementById('pageStatusBadge');
+            
+            if (approval && approval.status) {
+                if (approval.status === 'approved') {
+                    status.innerHTML = '<div class="alert alert-success">Página aprovada!</div>';
+                    statusBadge.textContent = 'Aprovada';
+                    statusBadge.classList.remove('bg-danger');
+                    statusBadge.classList.add('bg-success');
+                    approveBtn.disabled = true;
+                    rejectBtn.disabled = false;
+                } else {
+                    status.innerHTML = '<div class="alert alert-danger">Página rejeitada!</div>';
+                    statusBadge.textContent = 'Rejeitada';
+                    statusBadge.classList.remove('bg-success');
+                    statusBadge.classList.add('bg-danger');
+                    approveBtn.disabled = false;
+                    rejectBtn.disabled = true;
+                }
+            } else {
+                status.innerHTML = '';
+                statusBadge.textContent = 'Inválida';
+                statusBadge.classList.remove('bg-success');
+                statusBadge.classList.add('bg-danger');
+                approveBtn.disabled = false;
+                rejectBtn.disabled = false;
+            }
+        }
+        
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', updateUI);
+    </script>
+</body>
+</html>
