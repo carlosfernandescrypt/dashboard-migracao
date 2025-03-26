@@ -125,25 +125,37 @@
         async function sendApproval(status) {
             try {
                 const baseUrl = getBaseUrl();
-                const response = await fetch(`${baseUrl}/api/approvals/${reportId}/${pageId}`, {
+                const url = `${baseUrl}/api/approvals/${reportId}/${pageId}`;
+                console.log('Enviando requisição para:', url);
+                
+                const body = JSON.stringify({
+                    status: status,
+                    user: 'validador'
+                });
+                console.log('Corpo da requisição:', body);
+                
+                const response = await fetch(url, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({
-                        status: status,
-                        user: 'validador'
-                    }),
+                    body: body
                 });
                 
+                console.log('Status da resposta:', response.status);
+                
                 if (!response.ok) {
-                    throw new Error('Erro ao enviar aprovação');
+                    const errorText = await response.text();
+                    console.error('Erro da API:', errorText);
+                    throw new Error(`Erro ao enviar aprovação: ${response.status} ${errorText}`);
                 }
                 
-                return await response.json();
+                const result = await response.json();
+                console.log('Resposta da API:', result);
+                return result;
             } catch (error) {
-                console.error('Erro:', error);
-                alert('Erro ao enviar aprovação. Tente novamente.');
+                console.error('Erro completo:', error);
+                alert('Erro ao enviar aprovação. Tente novamente. Detalhes no console.');
                 return null;
             }
         }

@@ -14,14 +14,14 @@
       "use": "@vercel/static"
     },
     {
-      "src": "api/app.py",
+      "src": "api/index.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
     {
       "src": "/api(.*)",
-      "dest": "/api/app.py"
+      "dest": "/api"
     },
     {
       "src": "/",
