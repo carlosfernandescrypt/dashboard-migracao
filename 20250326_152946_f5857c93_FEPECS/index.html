@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Validação - FEPECS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { padding-top: 20px; padding-bottom: 50px; }
+        .validation-card { margin-bottom: 20px; }
+        .error-details { 
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            white-space: pre-wrap;
+        }
+        .navbar { position: fixed; bottom: 0; width: 100%; z-index: 100; }
+        .approval-btn { margin-top: 15px; }
+        .nav-bottom { 
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #f8f9fa;
+            border-top: 1px solid #ddd;
+            padding: 10px 0;
+            z-index: 1000;
+        }
+        .page-container { margin-bottom: 60px; }
+    </style>
+</head>
+<body>
+    <div class="container page-container">
+
+        <h1 class="mb-4">Dashboard de Validação</h1>
+        <div class="row mb-4">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Relatório</h5>
+                        <p class="card-text"><strong>Nome:</strong> FEPECS</p>
+                        <p class="card-text"><strong>ID:</strong> f5857c93</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-white bg-success">
+                    <div class="card-body">
+                        <h5 class="card-title">Páginas Válidas</h5>
+                        <p class="card-text display-4">25</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-white bg-danger">
+                    <div class="card-body">
+                        <h5 class="card-title">Páginas Inválidas</h5>
+                        <p class="card-text display-4">64</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h2 class="mb-3">Páginas com erros</h2>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Título</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="invalidPagesTable">
+
+                <tr id="page-row-page_1">
+                    <td>Estrutura</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_1">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_1.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/estrutura-da-fundacao-de-ensino-e-pesquisa-em-ciencias-da-saude-e-suas-escolas-mantidas" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/estrutura-da-fundacao-de-ensino-e-pesquisa-em-ciencias-da-saude-e-suas-escolas-mantidas" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_2">
+                    <td>Quem é Quem</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_2">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_2.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/quem-e-quem" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/quem-e-quem" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_3">
+                    <td>Base Jurídica</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_3">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_3.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/base-juridica" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/base-juridica" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_4">
+                    <td>Legislação</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_4">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_4.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/legislacao-2" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/legislacao-2" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_5">
+                    <td>Biblioteca</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_5">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_5.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/5538-2" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/5538-2" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_6">
+                    <td>Comitê Interno de Governança (CIG)</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_6">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_6.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/comite-interno-de-governanca-e-compliance" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/comite-interno-de-governanca-e-compliance" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_7">
+                    <td>Transparência</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_7">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_7.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/category/acesso-a-informacao" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/category/acesso-a-informacao" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_8">
+                    <td>Conheça a Lei de Acesso à Informação na FEPECS</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_8">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_8.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/conheca-a-lei-de-acesso-a-informacao-na-fepecs" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/conheca-a-lei-de-acesso-a-informacao-na-fepecs" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_9">
+                    <td>Institucional</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_9">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_9.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/institucional" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/institucional" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_10">
+                    <td>Ações e Programas</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_10">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_10.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/acoes-e-programas" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/acoes-e-programas" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_11">
+                    <td>Auditorias</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_11">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_11.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/auditorias" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/auditorias" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_12">
+                    <td>Convênios</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_12">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_12.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/convenios" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/convenios" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_13">
+                    <td>Despesas</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_13">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_13.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/despesas" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/despesas" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_14">
+                    <td>Diárias e Passagens</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_14">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_14.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/3497-2" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/3497-2" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_15">
+                    <td>Licitações e Contratos</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_15">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_15.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/licitacoes-e-contratos" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/licitacoes-e-contratos" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_16">
+                    <td>Servidores</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_16">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_16.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/servidores" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/servidores" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_17">
+                    <td>Informações Classificadas</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_17">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_17.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/informacoes-classificadas" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/informacoes-classificadas" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_18">
+                    <td>Perguntas Frequentes da LAI</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_18">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_18.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/perguntas-frequentes-da-lai" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/perguntas-frequentes-da-lai" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_19">
+                    <td>Perguntas Frequentes da FEPECS</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_19">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_19.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/perguntas-frequentes-da-instituicao" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/perguntas-frequentes-da-instituicao" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_20">
+                    <td>Serviço de Informação ao Cidadão (SIC)</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_20">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_20.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/servico-de-informacao-ao-cidadao-sic" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/servico-de-informacao-ao-cidadao-sic" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_21">
+                    <td>Ouvidoria</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_21">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_21.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/category/ouvidoria" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/category/ouvidoria" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_22">
+                    <td>A Ouvidoria da Fepecs</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_22">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_22.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/a-ouvidoria-da-fepecs" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/a-ouvidoria-da-fepecs" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_23">
+                    <td>Perfil do Ouvidor</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_23">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_23.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/perfil-do-ouvidor" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/perfil-do-ouvidor" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_24">
+                    <td>Tipos de Manifestações</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_24">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_24.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/tipos-de-manifestacoes" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/tipos-de-manifestacoes" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_25">
+                    <td>Painel de Ouvidoria</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_25">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_25.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/painel-de-ouvidoria" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/painel-de-ouvidoria" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_26">
+                    <td>Canais de Atendimento</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_26">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_26.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/canais-de-atendimento" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/canais-de-atendimento" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_27">
+                    <td>Requisitos e Documentos</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_27">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_27.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/requisitos-e-documentos" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/requisitos-e-documentos" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_28">
+                    <td>Passo a Passo</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_28">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_28.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/passo-a-passo" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/passo-a-passo" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_29">
+                    <td>Perguntas Frequentes</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_29">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_29.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/perguntas-frequentes" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/perguntas-frequentes" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_30">
+                    <td>Normas e Regulamentação</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_30">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_30.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/normas-e-regulamentacao" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/normas-e-regulamentacao" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_31">
+                    <td>Plano de Ação Anual</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_31">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_31.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/plano-de-acao-anual" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/plano-de-acao-anual" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_32">
+                    <td>Relatórios de Ouvidoria</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_32">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_32.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/relatorios-de-ouvidoria" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/relatorios-de-ouvidoria" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_33">
+                    <td>Serviço de Informações ao Cidadão – SIC</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_33">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_33.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/servico-de-informacoes-ao-cidadao-sic" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/servico-de-informacoes-ao-cidadao-sic" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_34">
+                    <td>Em Andamento</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_34">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_34.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/texto-comite-permanente-de-processos-seletivos" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/texto-comite-permanente-de-processos-seletivos" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_35">
+                    <td>ESP/DF em Andamento</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_35">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_35.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/espdf-em-andamento" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/espdf-em-andamento" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_36">
+                    <td>Fepecs em Andamento</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_36">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_36.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/fepecs-em-andamento" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/fepecs-em-andamento" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_37">
+                    <td>Escs em Andamento</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_37">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_37.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/escs-em-andamento" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/escs-em-andamento" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_38">
+                    <td>Comitê Permanente de Processos Seletivos (CPPS)</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_38">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_38.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/category/comite-permanente-de-processos-seletivos" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/category/comite-permanente-de-processos-seletivos" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_39">
+                    <td>Serviços</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_39">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_39.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/servicos" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/category/servicos-2" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_40">
+                    <td>Serviços</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_40">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_40.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/category/servicos" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/category/servicos-2" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_41">
+                    <td>Carta de Serviços</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_41">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_41.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/category/carta-de-servicos" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/category/carta-de-servicos" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_42">
+                    <td>Apresentação da Carta</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_42">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_42.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/texto_carta_de_servicos" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/texto-carta-de-servicos" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_43">
+                    <td>Serviços para o Cidadão</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_43">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_43.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/servicos-para-o-cidadao" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/servicos-para-o-cidadao" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_44">
+                    <td>Serviços para o Estudante</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_44">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_44.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/servicos-para-o-estudante" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/servicos-para-o-estudante" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_45">
+                    <td>Serviços para o Servidor</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_45">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_45.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/servicos-para-o-servidor" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/servicos-para-o-servidor" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_46">
+                    <td>Ouvidoria</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_46">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_46.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/ouvidoria" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/ouvidoria" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_47">
+                    <td>Serviço de Informação ao Cidadão – SIC</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_47">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_47.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/servico-de-informacao-ao-cidadao-sic-2" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/servico-de-informacao-ao-cidadao-sic-2" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_48">
+                    <td>Imprima aqui a sua carta de serviços</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_48">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_48.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/imprima-aqui-a-sua-carta-de-servicos" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/imprima-aqui-a-sua-carta-de-servicos" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_49">
+                    <td>Informações</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_49">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_49.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/category/informacoes" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/category/informacoes" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_50">
+                    <td>Comissão de Ética da FEPECS</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_50">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_50.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/comissao-de-etica-da-fepecs" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/comissao-de-etica-da-fepecs" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_51">
+                    <td>Conselho Fiscal</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_51">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_51.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/conselho-fiscal" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/conselho-fiscal" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_52">
+                    <td>Conselho Deliberativo</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_52">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_52.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/conselho-deliberativo" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/conselho-deliberativo" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_53">
+                    <td>Saúde Legal</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_53">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_53.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/saude-legal" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/saude-legal" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_54">
+                    <td>Mapa Estratégico</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_54">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_54.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/mapa-estrategico" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/mapa-estrategico" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_55">
+                    <td>Relatórios Quadrimestrais</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_55">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_55.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/resultados-alcancados" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/resultados-alcancados" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_56">
+                    <td>Comitê Ética em Pesquisa</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_56">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_56.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/category/cep/comite-de-etica-em-pesquisa-com-seres-humanos" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/category/cep/comite-de-etica-em-pesquisa-com-seres-humanos" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_57">
+                    <td>I. Calendário de Reuniões</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_57">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_57.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/agenda" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/agenda" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_58">
+                    <td>II. Espaço CEP-FEPECS</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_58">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_58.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/espaco-cep-fepecs" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/espaco-cep-fepecs" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_59">
+                    <td>a. Informativos</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_59">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_59.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/informativos" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/informativos" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_60">
+                    <td>b. Formulários</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_60">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_60.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/formularios" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/formularios" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_61">
+                    <td>IV. Espaço do Participante de Pesquisa</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_61">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_61.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/espaco-do-participante-de-pesquisa" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/espaco-do-participante-de-pesquisa" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_62">
+                    <td>V. Espaço do Relator</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_62">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_62.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/fluxogramas-de-deliberacao" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/fluxogramas-de-deliberacao" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_63">
+                    <td>VI. Legislação</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_63">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_63.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/legislacao" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/legislacao" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_64">
+                    <td>Modulo-15-Botoes</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_64">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_64.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.fepecs.edu.br/category/servicos-mais-procurados" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/category/servicos-mais-procurados" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <h2 class="mt-4 mb-3">Páginas aprovadas</h2>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Título</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="approvedPagesTable">
+
+                <tr>
+                    <td>Competências</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.fepecs.edu.br/competencias" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/competencias" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Competências da ESCS</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.fepecs.edu.br/competencias-da-escs" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/competencias-da-escs" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Competências da EAPSUS</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.fepecs.edu.br/competencias-da-eapsus" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/competencias-da-eapsus" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Competências da ETESB</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.fepecs.edu.br/competencias-da-etesb" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/competencias-da-etesb" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Contatos</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.fepecs.edu.br/contatos" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/contatos" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Agenda Teste</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.fepecs.edu.br/agenda-teste" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/agenda-teste" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Comissão de Ética</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.fepecs.edu.br/comissao-de-etica" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/comissao-de-etica" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Diárias e Passagens 2022</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.fepecs.edu.br/diarias-e-passagens-2022" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/diarias-e-passagens-2022" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Diárias e Passagens 2019</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.fepecs.edu.br/diarias-e-passagens-2019" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/diarias-e-passagens-2019" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sistema de Acompanhamento Governamental – SAG</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.fepecs.edu.br/sistema-de-acompanhamento-governamental-sag" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/sistema-de-acompanhamento-governamental-sag" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Plano Distrital de Saúde – PDS</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.fepecs.edu.br/plano-distrital-de-saude-pds" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/plano-distrital-de-saude-pds" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Plano Plurianual – PPA</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.fepecs.edu.br/plano-plurianual-ppa" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/plano-plurianual-ppa" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Plano Diretor de Tecnologia da Informação – PDTI 2020/2022</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.fepecs.edu.br/plano-diretor-de-tecnologia-da-informacao-pdti-2020-2022" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/plano-diretor-de-tecnologia-da-informacao-pdti-2020-2022" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Relatórios</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://fepecs-hml.edu.br:8443/relatorios-1" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/relatorios-1" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Relatório Anuais</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.fepecs.edu.br/relatorio-de-gestao-rge" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/relatorio-de-gestao-rge" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Notícias</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.fepecs.edu.br/noticias" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/noticias" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Video</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.fepecs.edu.br/video" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/video" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Audio</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.fepecs.edu.br/audio" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/audio" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Flickr</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.fepecs.edu.br/flickr" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/flickr" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Gerenciar Módulos da Home</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.fepecs.edu.br/gerenciar-modulos-da-home" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/gerenciar-modulos-da-home" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Histórico</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.fepecs.edu.br/historico-fepecs" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/historico-fepecs" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Perguntas frequentes da Escola Técnica de Saúde de Brasília (ETESB)</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.fepecs.edu.br/perguntas-frequentes-da-escola-tecnica-de-saude-de-brasilia-etesb" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/perguntas-frequentes-da-escola-tecnica-de-saude-de-brasilia-etesb" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Perguntas frequentes da Escola de Aperfeiçoamento do Sistema Único de Saúde (EAPSUS)</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.fepecs.edu.br/perguntas-frequentes-da-escola-de-aperfeicoamento-do-sistema-unico-de-saude-eapsus" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/perguntas-frequentes-da-escola-de-aperfeicoamento-do-sistema-unico-de-saude-eapsus" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Perguntas frequentes da Escola Superior de Ciências da Saúde (ESCS)</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.fepecs.edu.br/perguntas-frequentes-da-escola-superior-de-ciencias-da-saude-escs" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/perguntas-frequentes-da-escola-superior-de-ciencias-da-saude-escs" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Perguntas frequentes da Fundação de Ensino e Pesquisa em Ciências da Saúde (FEPECS)</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.fepecs.edu.br/perguntas-frequentes-da-fundacao-de-ensino-e-pesquisa-em-ciencias-da-saude-fepecs" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://fepecs-hml.edu.br:8443/perguntas-frequentes-da-fundacao-de-ensino-e-pesquisa-em-ciencias-da-saude-fepecs" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="mt-4">
+            <a href="../../index.html" class="btn btn-primary">Voltar para lista de relatórios</a>
+        </div>
+    </div>
+    
+    <div class="nav-bottom">
+        <div class="container">
+            <div class="d-flex justify-content-between">
+                <span class="text-muted">Validação de migração de páginas</span>
+                <span class="text-muted">Gerado em: 26/03/2025 15:29:46</span>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Variáveis de configuração
+        const reportId = 'f5857c93';
+        
+        // Função para buscar aprovações da API
+        async function fetchApprovals() {
+            try {
+                const response = await fetch(`/api/approvals/${reportId}`);
+                if (!response.ok) {
+                    throw new Error('Erro ao buscar aprovações');
+                }
+                return await response.json();
+            } catch (error) {
+                console.error('Erro:', error);
+                return {};
+            }
+        }
+        
+        // Função para atualizar o status de aprovação
+        async function updateApprovalStatus() {
+            const approvals = await fetchApprovals();
+            
+            // Atualiza o status de cada página
+            document.querySelectorAll('.page-status').forEach(statusEl => {
+                const pageId = statusEl.getAttribute('data-page-id');
+                const approval = approvals[pageId];
+                
+                if (approval && approval.status === 'approved') {
+                    const row = document.getElementById(`page-row-${pageId}`);
+                    
+                    // Se a página foi aprovada, crie uma cópia para a tabela de aprovadas
+                    const approvedTable = document.getElementById('approvedPagesTable');
+                    if (row && approvedTable) {
+                        statusEl.classList.remove('bg-danger');
+                        statusEl.classList.add('bg-success');
+                        statusEl.textContent = 'Aprovada';
+                        
+                        // Move a linha para a tabela de aprovadas
+                        const clonedRow = row.cloneNode(true);
+                        approvedTable.appendChild(clonedRow);
+                        
+                        // Oculta a linha original
+                        row.style.display = 'none';
+                    }
+                }
+            });
+        }
+        
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', updateApprovalStatus);
+        
+        // Atualiza a cada 5 segundos para pegar mudanças feitas por outros usuários
+        setInterval(updateApprovalStatus, 5000);
+    </script>
+</body>
+</html>

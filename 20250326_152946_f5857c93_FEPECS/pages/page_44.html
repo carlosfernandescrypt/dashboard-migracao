@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validação: Serviços para o Estudante</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { padding-top: 20px; padding-bottom: 50px; }
+        .validation-card { margin-bottom: 20px; }
+        .error-details { 
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            white-space: pre-wrap;
+        }
+        .navbar { position: fixed; bottom: 0; width: 100%; z-index: 100; }
+        .approval-btn { margin-top: 15px; }
+        .nav-bottom { 
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #f8f9fa;
+            border-top: 1px solid #ddd;
+            padding: 10px 0;
+            z-index: 1000;
+        }
+        .page-container { margin-bottom: 60px; }
+    </style>
+</head>
+<body>
+    <div class="container page-container">
+
+        <h1 class="mb-4">Detalhes da Validação</h1>
+        <div class="card validation-card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Serviços para o Estudante</h5>
+                <span id="pageStatusBadge" class="badge bg-danger">Inválida</span>
+            </div>
+            <div class="card-body">
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <strong>URL Original:</strong> 
+                        <a href="https://www.fepecs.edu.br/servicos-para-o-estudante" target="_blank" class="btn btn-sm btn-outline-primary">https://www.fepecs.edu.br/servicos-para-o-estudante</a>
+                    </div>
+                    <div class="col-md-6">
+                        <strong>URL Migrada:</strong> 
+                        <a href="https://fepecs-hml.edu.br:8443/servicos-para-o-estudante" target="_blank" class="btn btn-sm btn-outline-primary">https://fepecs-hml.edu.br:8443/servicos-para-o-estudante</a>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <strong>Timestamp:</strong> 2025-03-25 23:06:05
+                </div>
+                
+                <div class="mb-3">
+                    <strong>Scores de Similaridade:</strong>
+                    <ul class="list-group">
+                        <li class="list-group-item">Conteúdo: 88%</li>
+                        <li class="list-group-item">Estrutura: 94%</li>
+                    </ul>
+                </div>
+                
+                <h5 class="mt-4 mb-3">Erros Encontrados:</h5>
+                <ul class="list-group">
+<li class="list-group-item text-danger">Menu Mismatch: Menu não corresponde ao original:
+Diferenças no menu:
+Link 1: Caminhos diferentes após normalização
+Original: '/texto_carta_de_servicos'
+Migrado: '/texto-carta-de-servicos'
+Link 7: Texto diferente (Similaridade: 86.00%)
+Original: 'Imprima aqui a sua carta de serviços'
+Migrado: 'Imprima Aqui A Sua Carta de Serviços'</li>
+                </ul>
+                
+                <div class="approval-btn">
+                    <button id="approveBtn" class="btn btn-success" onclick="approvePage('page_44')">
+                        Aprovar Página
+                    </button>
+                    <button id="rejectBtn" class="btn btn-danger ms-2" onclick="rejectPage('page_44')">
+                        Rejeitar Página
+                    </button>
+                    <div id="approvalStatus" class="mt-2"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-4">
+            <a href="../index.html" class="btn btn-primary">Voltar para o Dashboard</a>
+        </div>
+    </div>
+    
+    <div class="nav-bottom">
+        <div class="container">
+            <div class="d-flex justify-content-between">
+                <span class="text-muted">Validação de migração de páginas</span>
+                <span class="text-muted">Gerado em: 26/03/2025 15:29:46</span>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Variáveis de configuração
+        const reportId = 'f5857c93';
+        const pageId = 'page_44';
+        
+        // Função para buscar aprovações da API
+        async function fetchApprovals() {
+            try {
+                const response = await fetch(`/api/approvals/${reportId}/${pageId}`);
+                if (!response.ok) {
+                    throw new Error('Erro ao buscar aprovações');
+                }
+                return await response.json();
+            } catch (error) {
+                console.error('Erro:', error);
+                return {};
+            }
+        }
+        
+        // Função para enviar aprovação para a API
+        async function sendApproval(status) {
+            try {
+                const response = await fetch(`/api/approvals/${reportId}/${pageId}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        status: status,
+                        user: 'validador'
+                    }),
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Erro ao enviar aprovação');
+                }
+                
+                return await response.json();
+            } catch (error) {
+                console.error('Erro:', error);
+                alert('Erro ao enviar aprovação. Tente novamente.');
+                return null;
+            }
+        }
+        
+        // Gerenciamento de aprovação usando a API
+        async function approvePage() {
+            const result = await sendApproval('approved');
+            if (result) {
+                updateUI();
+                alert("Página aprovada! Esta página aparecerá na seção de páginas aprovadas quando você voltar ao dashboard.");
+            }
+        }
+        
+        async function rejectPage() {
+            const result = await sendApproval('rejected');
+            if (result) {
+                updateUI();
+            }
+        }
+        
+        async function updateUI() {
+            const approval = await fetchApprovals();
+            const status = document.getElementById('approvalStatus');
+            const approveBtn = document.getElementById('approveBtn');
+            const rejectBtn = document.getElementById('rejectBtn');
+            const statusBadge = document.getElementById('pageStatusBadge');
+            
+            if (approval && approval.status) {
+                if (approval.status === 'approved') {
+                    status.innerHTML = '<div class="alert alert-success">Página aprovada!</div>';
+                    statusBadge.textContent = 'Aprovada';
+                    statusBadge.classList.remove('bg-danger');
+                    statusBadge.classList.add('bg-success');
+                    approveBtn.disabled = true;
+                    rejectBtn.disabled = false;
+                } else {
+                    status.innerHTML = '<div class="alert alert-danger">Página rejeitada!</div>';
+                    statusBadge.textContent = 'Rejeitada';
+                    statusBadge.classList.remove('bg-success');
+                    statusBadge.classList.add('bg-danger');
+                    approveBtn.disabled = false;
+                    rejectBtn.disabled = true;
+                }
+            } else {
+                status.innerHTML = '';
+                statusBadge.textContent = 'Inválida';
+                statusBadge.classList.remove('bg-success');
+                statusBadge.classList.add('bg-danger');
+                approveBtn.disabled = false;
+                rejectBtn.disabled = false;
+            }
+        }
+        
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', updateUI);
+    </script>
+</body>
+</html>
