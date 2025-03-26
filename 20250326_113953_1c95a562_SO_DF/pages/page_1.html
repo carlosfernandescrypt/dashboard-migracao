@@ -99,10 +99,18 @@
         const reportId = '1c95a562';
         const pageId = 'page_1';
         
+        // Obter a URL base do site
+        const getBaseUrl = () => {
+            // No Vercel, use o domínio completo
+            return window.location.origin;
+        };
+        
         // Função para buscar aprovações da API
         async function fetchApprovals() {
             try {
-                const response = await fetch(`/api/approvals/${reportId}/${pageId}`);
+                const baseUrl = getBaseUrl();
+                const response = await fetch(`${baseUrl}/api/approvals/${reportId}/${pageId}`);
+                
                 if (!response.ok) {
                     throw new Error('Erro ao buscar aprovações');
                 }
@@ -116,7 +124,8 @@
         // Função para enviar aprovação para a API
         async function sendApproval(status) {
             try {
-                const response = await fetch(`/api/approvals/${reportId}/${pageId}`, {
+                const baseUrl = getBaseUrl();
+                const response = await fetch(`${baseUrl}/api/approvals/${reportId}/${pageId}`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

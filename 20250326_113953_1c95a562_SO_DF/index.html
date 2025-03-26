@@ -1496,7 +1496,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Participantes-OAE’s</td>
+                    <td>Participantes-OAE's</td>
                     <td><span class="badge bg-success">Válida</span></td>
                     <td>
                         <a href="https://www.so.df.gov.br/participantes-oaes" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
@@ -1678,10 +1678,18 @@
         // Variáveis de configuração
         const reportId = '1c95a562';
         
+        // Obter a URL base do site
+        const getBaseUrl = () => {
+            // No Vercel, use o domínio completo
+            return window.location.origin;
+        };
+        
         // Função para buscar aprovações da API
         async function fetchApprovals() {
             try {
-                const response = await fetch(`/api/approvals/${reportId}`);
+                const baseUrl = getBaseUrl();
+                const response = await fetch(`${baseUrl}/api/approvals/${reportId}`);
+                
                 if (!response.ok) {
                     throw new Error('Erro ao buscar aprovações');
                 }
