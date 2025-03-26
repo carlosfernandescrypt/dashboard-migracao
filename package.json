@@ -1,0 +1,11 @@
+{
+  "name": "gdf-migrador-validation-reports",
+  "version": "1.0.0",
+  "description": "Relat\u00f3rios de valida\u00e7\u00e3o de migra\u00e7\u00e3o de p\u00e1ginas GDF",
+  "scripts": {
+    "start": "serve ."
+  },
+  "devDependencies": {
+    "serve": "^14.0.0"
+  }
+}

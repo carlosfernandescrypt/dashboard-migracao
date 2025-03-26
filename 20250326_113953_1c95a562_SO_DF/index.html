@@ -1,0 +1,1732 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Validação - SO_DF</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { padding-top: 20px; padding-bottom: 50px; }
+        .validation-card { margin-bottom: 20px; }
+        .error-details { 
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            white-space: pre-wrap;
+        }
+        .navbar { position: fixed; bottom: 0; width: 100%; z-index: 100; }
+        .approval-btn { margin-top: 15px; }
+        .nav-bottom { 
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #f8f9fa;
+            border-top: 1px solid #ddd;
+            padding: 10px 0;
+            z-index: 1000;
+        }
+        .page-container { margin-bottom: 60px; }
+    </style>
+</head>
+<body>
+    <div class="container page-container">
+
+        <h1 class="mb-4">Dashboard de Validação</h1>
+        <div class="row mb-4">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Relatório</h5>
+                        <p class="card-text"><strong>Nome:</strong> SO_DF</p>
+                        <p class="card-text"><strong>ID:</strong> 1c95a562</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-white bg-success">
+                    <div class="card-body">
+                        <h5 class="card-title">Páginas Válidas</h5>
+                        <p class="card-text display-4">135</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-white bg-danger">
+                    <div class="card-body">
+                        <h5 class="card-title">Páginas Inválidas</h5>
+                        <p class="card-text display-4">54</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h2 class="mb-3">Páginas com erros</h2>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Título</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="invalidPagesTable">
+
+                <tr id="page-row-page_1">
+                    <td>Organograma</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_1">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_1.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/organograma" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/organograma" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_2">
+                    <td>Legislação</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_2">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_2.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/legislacao" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/legislacao" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_3">
+                    <td>Boletim Administrativo Interno</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_3">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_3.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/boletim-interno" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/boletim-interno" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_4">
+                    <td>Dúvidas conselhos</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_4">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_4.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/category/duvidas-conselhos" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/category/duvidas-conselhos" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_5">
+                    <td>Legislação Básica</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_5">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_5.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/legislacao-basica" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/legislacao-basica" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_6">
+                    <td>Plano Integrado de Gerenciamento de Resíduos de Construção Civil e Resíduos Volumosos no Distrito Federal – PIGRCC</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_6">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_6.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/plano-integrado-de-gerenciamento-de-residuos-de-construcao-civil-e-residuos-volumosos-no-distrito-federal-pigrcc" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/plano-integrado-de-gerenciamento-de-residuos-de-construcao-civil-e-residuos-volumosos-no-distrito-federal-pigrcc" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_7">
+                    <td>Licitações</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_7">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_7.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/licitacoes" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/licitacoes" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_8">
+                    <td>Licitações realizadas pela SODF</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_8">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_8.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/licitacoes-realizadas-pela-sodf" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/licitacoes-realizadas-pela-sodf" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_9">
+                    <td>Concorrência</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_9">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_9.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/concorrencia" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/concorrencia" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_10">
+                    <td>Dispensas Eletrônicas</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_10">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_10.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/dispensas-eletronicas" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/dispensas-eletronicas" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_11">
+                    <td>Pregão Eletrônico</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_11">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_11.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/pregao-eletronico" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/pregao-eletronico" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_12">
+                    <td>Pregão 06/2023</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_12">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_12.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/pregao-06-2023" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/pregao-06-2023" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_13">
+                    <td>Concorrência 01/2023</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_13">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_13.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/concorrencia-01-2023" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/concorrencia-01-2023" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_14">
+                    <td>Acordo de Cooperação Técnica</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_14">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_14.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/acordo-de-cooperacao-tecnica-2" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/acordo-de-cooperacao-tecnica-2" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_15">
+                    <td>Despesas</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_15">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_15.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/despesas" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/despesas" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_16">
+                    <td>Licitações e Contratos</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_16">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_16.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/licitacoes-e-contratos-2" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/licitacoes-e-contratos-2" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_17">
+                    <td>Carta de Serviços</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_17">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_17.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/category/servicos-2/carta-de-servicos" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/category/servicos-2/carta-de-servicos" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_18">
+                    <td>Apresentação da Carta</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_18">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_18.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/apresentacao-da-carta" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/apresentacao-da-carta" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_19">
+                    <td>Solicitação de obras de urbanização</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_19">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_19.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/solicitacao-de-obras-de-urbanizacao-2" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/solicitacao-de-obras-de-urbanizacao-2" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_20">
+                    <td>Serviços de Iluminação Pública</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_20">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_20.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/solicitacao-de-obras-de-urbanizacao" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/solicitacao-de-obras-de-urbanizacao" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_21">
+                    <td>Ouvidoria</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_21">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_21.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/category-ouvidoria" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/category-ouvidoria" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_22">
+                    <td>Serviço de Informação ao Cidadão – SIC</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_22">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_22.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/servico-de-informacao-ao-cidadao-sic-2" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/servico-de-informacao-ao-cidadao-sic-2" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_23">
+                    <td>Imprima aqui a Carta de Serviços – PDF</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_23">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_23.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/versao-pdf" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/versao-pdf" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_24">
+                    <td>Avalie a nossa Carta de Serviços</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_24">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_24.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/atendimento-a-cidadaos" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/atendimento-a-cidadaos" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_25">
+                    <td>Informações</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_25">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_25.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/informacoes-2" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/informacoes-2" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_26">
+                    <td>Informações sobre obras em andamento</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_26">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_26.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/informacoes" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/informacoes" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_27">
+                    <td>Protocolo</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_27">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_27.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/protocolo" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/protocolo" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_28">
+                    <td>Contatos</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_28">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_28.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/contatos" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/contatos" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_29">
+                    <td>Manual de Metodologia de Revisão de Preços para fins de Análise do Reequilíbrio Econômico-Financeiro de Contratos de Obras e Serviços de Engenharia da SODF</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_29">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_29.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/manual-de-metodologia-de-revisao-de-precos-para-fins-de-analise-do-reequilibrio-economico-financeiro-de-contratos-de-obras-e-servicos-de-engenharia-da-sodf" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/manual-de-metodologia-de-revisao-de-precos-para-fins-de-analise-do-reequilibrio-economico-financeiro-de-contratos-de-obras-e-servicos-de-engenharia-da-sodf" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_30">
+                    <td>Comitê de Governança</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_30">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_30.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/cig" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/cig" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_31">
+                    <td>Planejamento Estratégico</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_31">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_31.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/planejamento-estrategico" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/planejamento-estrategico" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_32">
+                    <td>Gestão de Riscos</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_32">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_32.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/gestao-de-riscos" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/gestao-de-riscos" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_33">
+                    <td>Integridade Pública</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_33">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_33.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/programa-de-integridade-publica" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/programa-de-integridade-publica" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_34">
+                    <td>MGG</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_34">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_34.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/modelo-governanca-gestao" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/modelo-governanca-gestao" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_35">
+                    <td>Mapeamento de Processos</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_35">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_35.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/mapeamento-de-processos" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/mapeamento-de-processos" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_36">
+                    <td>Ouvidoria</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_36">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_36.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/ouvidoria" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/ouvidoria" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_37">
+                    <td>Transparência</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_37">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_37.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/transparencia" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/transparencia" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_38">
+                    <td>Mecanismos de Liderança</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_38">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_38.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/mecanismos-de-lideranca" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/mecanismos-de-lideranca" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_39">
+                    <td>Controle Interno</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_39">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_39.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/controle-interno" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/controle-interno" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_40">
+                    <td>Conformidade</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_40">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_40.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/conformidade" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/conformidade" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_41">
+                    <td>Painel Gestão 2019-2022</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_41">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_41.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/painel-executivo-gestao-2019-2022" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/painel-executivo-gestao-2019-2022" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_42">
+                    <td>Comissão Setorial de Ética</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_42">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_42.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/comissao-de-etica" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/comissao-de-etica" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_43">
+                    <td>Programa de Atuação</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_43">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_43.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/programa-de-atuacao" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/programa-de-atuacao" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_44">
+                    <td>Forma de contato</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_44">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_44.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/forma-de-contato" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/forma-de-contato" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_45">
+                    <td>Ouvidoria</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_45">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_45.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/category/ouvidoria" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/category/ouvidoria" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_46">
+                    <td>Perguntas frequentes</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_46">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_46.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/perguntas-frequentes" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/perguntas-frequentes" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_47">
+                    <td>Plano de Ação Anual</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_47">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_47.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/plano-de-acao-anual" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/plano-de-acao-anual" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_48">
+                    <td>Serviço de Informações ao Cidadão – SIC</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_48">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_48.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/servico-de-informacoes-ao-cidadao-sic" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/servico-de-informacoes-ao-cidadao-sic" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_49">
+                    <td>Cartaz</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_49">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_49.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/cartaz" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/cartaz" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_50">
+                    <td>Condomínio Porto Rico</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_50">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_50.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/infrografico-teste-2-porto-rico" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/infrografico-teste-2-porto-rico" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_51">
+                    <td>Relatório das Etapas Programadas para Executivo – 2023</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_51">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_51.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/relatorio-das-etapas-programadas-para-executivo-2023" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/relatorio-das-etapas-programadas-para-executivo-2023" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_52">
+                    <td>Setor Habitacional Buritizinho – Sobradinho II</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_52">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_52.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/infrografico-teste" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/infrografico-teste" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_53">
+                    <td>Setor Habitacional Sol Nascente – Ceilândia</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_53">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_53.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/infografico-post-sol-nascente" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/infografico-post-sol-nascente" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_54">
+                    <td>Tomada de Preço 01/2022</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_54">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_54.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.so.df.gov.br/tomada-de-preco-01-2022" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/tomada-de-preco-01-2022" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <h2 class="mt-4 mb-3">Páginas aprovadas</h2>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Título</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="approvedPagesTable">
+
+                <tr>
+                    <td>Início</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Institucional</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/institucional" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/institucional" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sobre a Secretaria</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/sobre-a-secretaria" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/sobre-a-secretaria" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Estrutura</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/estrutura" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/estrutura" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Contato</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/contato" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/contato" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Missão, Visão e Valores</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/missao-visao-e-valores" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/missao-visao-e-valores" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Perfil do Secretário</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/perfil-do-secretario" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/perfil-do-secretario" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Quem é Quem</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/quem-e-quem" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/quem-e-quem" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Regimento Interno</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/regimento-interno" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/regimento-interno" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Acordo de Cooperação Técnica</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/acordo-de-cooperacao-tecnica" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/acordo-de-cooperacao-tecnica" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Escritório Técnico Especial</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/escritorio-tecnico-especial-ete" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/escritorio-tecnico-especial-ete" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Código de Conduta</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/codigo-de-etica" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/codigo-de-etica" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Agenda e Atas de Reunião</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/agenda-e-atas-de-reuniao" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/agenda-e-atas-de-reuniao" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Resoluções e Instruções Normativas</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/resolucoes-e-instrucoes-normativas" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/resolucoes-e-instrucoes-normativas" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Reciclagem de Resíduos de Construção Civil – Preços de Referência e Áreas de Reciclagem Licenciadas</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/reciclagem-de-residuos-de-construcao-civil-precos-de-referencia-e-areas-de-reciclagem-licenciadas" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/reciclagem-de-residuos-de-construcao-civil-precos-de-referencia-e-areas-de-reciclagem-licenciadas" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Conselho de Saneamento Básico</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/conselho-de-saneamento-basico" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/conselho-de-saneamento-basico" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Seleção de Representantes da Sociedade Civil</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/selecao-de-representantes-da-sociedade-civil" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/selecao-de-representantes-da-sociedade-civil" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Saneamento Básico</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/saneamento-basico" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/saneamento-basico" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Controle Social</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/controle-social" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/controle-social" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Plano Distrital de Saneamento Básico e de Gestão Integrada de Resíduos Sólidos – PDSB E PDGIRS</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/plano-distrital-de-saneamento-basico-e-de-gestao-integrada-de-residuos-solidos-pdsb-e-pdgirs" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/plano-distrital-de-saneamento-basico-e-de-gestao-integrada-de-residuos-solidos-pdsb-e-pdgirs" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Legislações Básicas</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/legislacoes-basicas" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/legislacoes-basicas" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Atas e Pautas</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/atas-e-pautas" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/atas-e-pautas" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Recomendações</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/recomendacoes" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/recomendacoes" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sala de Imprensa</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/sala-de-imprensa" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/sala-de-imprensa" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Licitações realizadas pela NOVACAP</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/licitacoes-realizadas-pela-novacap" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/licitacoes-realizadas-pela-novacap" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Pregões</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://so-hml.df.gov.br:8443/pregoes" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/pregoes" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Pregão 01/2021</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/pregao-01-2021" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/pregao-01-2021" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Pregão 01/2022</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/pregao-01-2022" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/pregao-01-2022" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Pregão 01/2023</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/pregao-01-2023" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/pregao-01-2023" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Pregão 02/2021</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/pregao-02-2021" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/pregao-02-2021" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Pregão 02/2022</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/pregao-02-2022" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/pregao-02-2022" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Pregão 02/2023</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/pregao-02-2023" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/pregao-02-2023" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Pregão 03/2023</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/pregao-03-2023" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/pregao-03-2023" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Pregão 04/2023</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/pregao-04-2023" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/pregao-04-2023" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Pregão 05/2023</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/pregao-05-2023" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/pregao-05-2023" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Pregão 07/2023</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/pregao-07-2023" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/pregao-07-2023" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Pregão 08/2023</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/pregao-08-2023" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/pregao-08-2023" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Pregão 09/2023</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/pregao-09-2023" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/pregao-09-2023" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Pregão 10/2023</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/pregao-10-2023" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/pregao-10-2023" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Pregão 90001/2025</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/15643-2" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/15643-2" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Pregão 90002/2025</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/pregao-90002-2025" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/pregao-90002-2025" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Concorrências</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://so-hml.df.gov.br:8443/concorrencias-2" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/concorrencias-2" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Concorrência 01/2022</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/concorrencia-no-01-2022" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/concorrencia-no-01-2022" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Concorrência 03/2022</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/concorrencia-03-2022" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/concorrencia-03-2022" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Concorrência 04/2022</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/concorrencia-04-2022" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/concorrencia-04-2022" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Concorrência 04/2023</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/concorrencia-04-2023" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/concorrencia-04-2023" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Concorrência 05/2022</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/concorrencia-05-2022" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/concorrencia-05-2022" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Concorrência 05/2023 alterada para 08/2023</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/concorrencia-05-2023" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/concorrencia-05-2023" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Concorrência 06/2022</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/concorrencia-06-2022" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/concorrencia-06-2022" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Concorrência 06/2023</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/concorrencia-06-2023" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/concorrencia-06-2023" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Concorrência 07/2023</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/concorrencia-07-2023" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/concorrencia-07-2023" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Lei de Acesso à Informação</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/category/acesso-a-informacao" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/category/acesso-a-informacao" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Boletim Administrativo Interno</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/boletim-interno-2" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/boletim-interno-2" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Ações e Programas</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/acoes-e-programas" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/acoes-e-programas" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Auditorias</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/auditorias" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/auditorias" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Convênios</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/convenios" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/convenios" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Servidores</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/servidores" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/servidores" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Informações Classificadas</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/informacoes-classificadas" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/informacoes-classificadas" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Perguntas Frequentes</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/perguntas-frequentes-2" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/perguntas-frequentes-2" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Serviço de Informação ao Cidadão – SIC</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/servico-de-informacao-ao-cidadao" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/servico-de-informacao-ao-cidadao" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>e-Protocolo</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/e-protocolo" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/e-protocolo" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Telefones Úteis</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/telefones-uteis" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/telefones-uteis" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Instituto Hospital de Base</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/instituto-hospital-de-base" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/instituto-hospital-de-base" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Manuais</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://so-hml.df.gov.br:8443/manuais-2" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/manuais-2" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Manual de Procedimentos Correcionais da SODF</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/manual-de-procedimentos-correcionais-da-sodf" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/manual-de-procedimentos-correcionais-da-sodf" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Manual de Mapeamento de Processos</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/manual-de-mapeamento-de-processos" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/manual-de-mapeamento-de-processos" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Manual Bim para Desenvolvimento de Projetos de Urbanismo e Infraestrutura da Secretaria de Estado de Obras e Infraestrutura do Distrito Federal – SUPOP</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/manual-bim-para-desenvolvimento-de-projetos-de-urbanismo-e-infraestrutura-da-secretaria-de-estado-de-obras-e-infraestrutura-do-distrito-federal-supop" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/manual-bim-para-desenvolvimento-de-projetos-de-urbanismo-e-infraestrutura-da-secretaria-de-estado-de-obras-e-infraestrutura-do-distrito-federal-supop" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Orientações Normativas para Elaboração de Orçamento de Obras e Serviços de Engenharia da Secretaria de Estado de Obras e Infraestrutura do Distrito Federal</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/orientacoes-normativas-para-elaboracao-de-orcamento-de-obras-e-servicos-de-engenharia-da-secretaria-de-estado-de-obras-e-infraestrutura-do-distrito-federal" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/orientacoes-normativas-para-elaboracao-de-orcamento-de-obras-e-servicos-de-engenharia-da-secretaria-de-estado-de-obras-e-infraestrutura-do-distrito-federal" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Manual de Supervisão e Execução de Obras de Engenharia da SODF</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/manual-de-supervisao-e-execucao-de-obras-de-engenharia-da-secretaria-de-obras-e-infraestrutura-do-distrito-federal" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/manual-de-supervisao-e-execucao-de-obras-de-engenharia-da-secretaria-de-obras-e-infraestrutura-do-distrito-federal" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Manual InfObras – Versão 3.5</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/manuais" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/manuais" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>PDSB</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/pdsb" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/pdsb" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>PGRS</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/pgrs" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/pgrs" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Agenda de reuniões</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/agenda-de-reunioes" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/agenda-de-reunioes" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>A Ouvidoria da SO</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/a-ouvidoria-da-so" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/a-ouvidoria-da-so" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Perfil da Ouvidora</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/perfil-da-ouvidora" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/perfil-da-ouvidora" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Painel de Ouvidoria</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/painel-de-ouvidoria" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/painel-de-ouvidoria" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tipos de Manifestação</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/tipos-de-manifestacao" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/tipos-de-manifestacao" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Canais de Atendimento</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/canais-de-atendimento" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/canais-de-atendimento" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Requisitos e Documentos</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/requisitos-e-documentos" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/requisitos-e-documentos" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Passo a Passo</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/passo-a-passo" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/passo-a-passo" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Normas e Regulamentações</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/normas-e-regulamentacoes" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/normas-e-regulamentacoes" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Relatórios de Ouvidoria</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/relatorio-de-ouvidoria" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/relatorio-de-ouvidoria" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Conheça os demais serviços</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/conheca-os-demais-servicos" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/conheca-os-demais-servicos" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Gerenciar Módulos da Home</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/gerenciar-modulos-da-home" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/gerenciar-modulos-da-home" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Dados Abertos</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/dados-abertos" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/dados-abertos" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Ouvidoria da SO</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/ouvidoria-da-sinesp" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/ouvidoria-da-sinesp" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Portal da transparência</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/portal-da-transparencia" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/portal-da-transparencia" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Siga Brasília</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/siga-brasilia" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/siga-brasilia" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Cidadão</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/cidadao" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/cidadao" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Negócios</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/negocios" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/negocios" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Servidor</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/servidor" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/servidor" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Viva Brasília</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/viva-brasilia" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/viva-brasilia" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Analise Execução Orçamentaria do Desempenho Físico Financeiro – 2012</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/analise-execucao-orcamentaria-do-desempenho-fisico-financeiro-2012" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/analise-execucao-orcamentaria-do-desempenho-fisico-financeiro-2012" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Analise Execução Orçamentaria do Desempenho Físico Financeiro – 2013</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/analise-execucao-orcamentaria-do-desempenho-fisico-financeiro-2013" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/analise-execucao-orcamentaria-do-desempenho-fisico-financeiro-2013" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Analise Execução Orçamentaria do Desempenho Físico Financeiro – 2014</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/analise-execucao-orcamentaria-do-desempenho-fisico-financeiro-2014" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/analise-execucao-orcamentaria-do-desempenho-fisico-financeiro-2014" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Analise Execução Orçamentaria do Desempenho Físico Financeiro – 2015</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/analise-execucao-orcamentaria-do-desempenho-fisico-financeiro-2015" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/analise-execucao-orcamentaria-do-desempenho-fisico-financeiro-2015" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Analise Execução Orçamentaria do Desempenho Físico Financeiro – 2016</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/analise-execucao-orcamentaria-do-desempenho-fisico-financeiro-2016" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/analise-execucao-orcamentaria-do-desempenho-fisico-financeiro-2016" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Analise Execução Orçamentaria do Desempenho Físico Financeiro – 2017</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/analise-execucao-orcamentaria-do-desempenho-fisico-financeiro-2017" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/analise-execucao-orcamentaria-do-desempenho-fisico-financeiro-2017" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Analise Execução Orçamentaria do Desempenho Físico Financeiro – 2018</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/analise-execucao-orcamentaria-do-desempenho-fisico-financeiro-2018" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/analise-execucao-orcamentaria-do-desempenho-fisico-financeiro-2018" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Analise Execução Orçamentaria do Desempenho Físico Financeiro – 2019</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/analise-execucao-orcamentaria-do-desempenho-fisico-financeiro-2019" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/analise-execucao-orcamentaria-do-desempenho-fisico-financeiro-2019" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Analise Execução Orçamentaria do Desempenho Físico Financeiro – 2020</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/analise-execucao-orcamentaria-do-desempenho-fisico-financeiro-2020" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/analise-execucao-orcamentaria-do-desempenho-fisico-financeiro-2020" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Analise Execução Orçamentaria do Desempenho Físico Financeiro – 2021</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/analise-execucao-orcamentaria-do-desempenho-fisico-financeiro-2021" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/analise-execucao-orcamentaria-do-desempenho-fisico-financeiro-2021" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Analise Execução Orçamentaria do Desempenho Físico Financeiro – 2022</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/analise-execucao-orcamentaria-do-desempenho_fisico-financeiro-2022" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/analise-execucao-orcamentaria-do-desempenho-fisico-financeiro-2022" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Analise Execução Orçamentaria do Desempenho Físico Financeiro – 2023</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/analise-execucao-orcamentaria-do-desempenho-fisico-financeiro-2023" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/analise-execucao-orcamentaria-do-desempenho-fisico-financeiro-2023" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Analise Execução Orçamentaria do Desempenho Físico Financeiro – 2024</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/analise-execucao-orcamentaria-do-desempenho-fisico-financeiro-2024" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/analise-execucao-orcamentaria-do-desempenho-fisico-financeiro-2024" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Calçadas e rampas de acessibilidade do Parque da Cidade – Plano Piloto</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/calcadas-e-rampas-de-acessibilidade-do-parque-da-cidade-plano-piloto" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/calcadas-e-rampas-de-acessibilidade-do-parque-da-cidade-plano-piloto" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Canais de atendimento</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/canais-de-atendimento-2" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/canais-de-atendimento-2" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Estacionamento Setor Bancário Norte</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/estacionamento-setor-bancario-norte" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/estacionamento-setor-bancario-norte" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Infraestrutura do Condomínio Ribeirão (Porto Rico) – Santa Maria</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/infraestrutura-do-condominio-ribeirao-porto-rico-santa-maria" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/infraestrutura-do-condominio-ribeirao-porto-rico-santa-maria" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Infraestrutura do Setor Habitacional Buritizinho – Sobradinho</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/infraestrutura-do-setor-habitacional-buritizinho-sobradinho" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/infraestrutura-do-setor-habitacional-buritizinho-sobradinho" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Infraestrutura do Trecho 01 do Setor Habitacional Sol Nascente –  Ceilândia</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/infraestrutura-do-trecho-01-do-setor-habitacional-sol-nascente-ceilandia" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/infraestrutura-do-trecho-01-do-setor-habitacional-sol-nascente-ceilandia" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Manual Bim para Desenvolvimento de Projetos de Urbanismo e Infraestrutura da Secretaria de Estado de Obras e Infraestrutura do Distrito Federal</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/manual-bim-para-desenvolvimento-de-projetos-de-urbanismo-e-infraestrutura-da-secretaria-de-estado-de-obras-e-infraestrutura-do-distrito-federal" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/manual-bim-para-desenvolvimento-de-projetos-de-urbanismo-e-infraestrutura-da-secretaria-de-estado-de-obras-e-infraestrutura-do-distrito-federal" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Manual de Metodologia de Revisão de Preços para fins de Análise do Reequilíbrio Econômico-Financeiro de Contratos de Obras e Serviços de Engenharia da SODF</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/manual-de-metodologia-de-revisa%cc%83o-de-prec%cc%a7os-para-fins-de-analise-do-reequilibrio-econo%cc%82mico-financeiro-de-contratos-de-obras-e-servic%cc%a7os-de-engenharia-da-sodf" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/manual-de-metodologia-de-revisaao-de-preccos-para-fins-de-analise-do-reequilibrio-economico-financeiro-de-contratos-de-obras-e-servicos-de-engenharia-da-sodf" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Normas e regulamentações</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/normas-e-regulamentacoes-2" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/normas-e-regulamentacoes-2" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Novo acesso Parque da Cidade (713/913 sul) – Plano Piloto</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/novo-acesso-parque-da-cidade-713-913-sul-plano-piloto" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/novo-acesso-parque-da-cidade-713-913-sul-plano-piloto" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Participantes-OAE’s</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/participantes-oaes" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/participantes-oaes" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Pista de caminhada do Parque da Cidade – Plano Piloto</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/4244-2" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/4244-2" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Planilha-Obras</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/planilha-obras" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/planilha-obras" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Processo de seleção de representantes da sociedade civil para compor o Conselho de Saneamento Básico do Distrito Federal – CONSAB/DF</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/processo-de-selecao-de-representantes-da-sociedade-civil-para-compor-o-conselho-de-saneamento-basico-do-distrito-federal-consab-df" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/processo-de-selecao-de-representantes-da-sociedade-civil-para-compor-o-conselho-de-saneamento-basico-do-distrito-federal-consab-df" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Relatório das Etapas Programadas para Executivo – 2012</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/relatorio-das-etapas-programadas-para-executivo-2012" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/relatorio-das-etapas-programadas-para-executivo-2012" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Relatório das Etapas Programadas para Executivo – 2013</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/relatorio-das-etapas-programadas-para-executivo-2013" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/relatorio-das-etapas-programadas-para-executivo-2013" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Relatório das Etapas Programadas para Executivo – 2014</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/relatorio-das-etapas-programadas-para-executivo-2014" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/relatorio-das-etapas-programadas-para-executivo-2014" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Relatório das Etapas Programadas para Executivo – 2015</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/relatorio-das-etapas-programadas-para-executivo-2015" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/relatorio-das-etapas-programadas-para-executivo-2015" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Relatório das Etapas Programadas para Executivo – 2016</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/relatorio-das-etapas-programadas-para-executivo-2016" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/relatorio-das-etapas-programadas-para-executivo-2016" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Relatório das Etapas Programadas para Executivo – 2017</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/relatorio-das-etapas-programadas-para-executivo-2017" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/relatorio-das-etapas-programadas-para-executivo-2017" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Relatório das Etapas Programadas para Executivo – 2018</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/relatorio-das-etapas-programadas-para-executivo-2018" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/relatorio-das-etapas-programadas-para-executivo-2018" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Relatório das Etapas Programadas para Executivo – 2019</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/relatorio-das-etapas-programadas-para-executivo-2019" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/relatorio-das-etapas-programadas-para-executivo-2019" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Relatório das Etapas Programadas para Executivo – 2020</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/relatorio-das-etapas-programadas-para-executivo-2020" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/relatorio-das-etapas-programadas-para-executivo-2020" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Relatorio das Etapas Programadas para Executivo – 2021</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/relatorio-das-etapas-programadas-para-executivo-2021" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/relatorio-das-etapas-programadas-para-executivo-2021" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Relatório das Etapas Programadas para Executivo – 2021</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/relatorio-das-etapas-programadas-para-executivo-2021-2" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/relatorio-das-etapas-programadas-para-executivo-2021-2" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Relatório das Etapas Programadas para Executivo – 2022</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/relatorio-das-etapas-programadas-para-executivo-2022" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/relatorio-das-etapas-programadas-para-executivo-2022" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Relatório das Etapas Programadas para Executivo – 2022</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/relatorio-das-etapas-programadas-para-executivo-2022-2" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/relatorio-das-etapas-programadas-para-executivo-2022-2" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Relatório das Etapas Programadas para Executivo – 2024</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/relatorio-das-etapas-programadas-para-executivo-2024" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/relatorio-das-etapas-programadas-para-executivo-2024" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Revitalizada, a Praça Lúcio Costa será reaberta nesta terça</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/revitalizada-a-praca-lucio-costa-sera-reaberta-nesta-terca" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/revitalizada-a-praca-lucio-costa-sera-reaberta-nesta-terca" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Viadutos Águas Claras</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.so.df.gov.br/viadutos-aguas-claras" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://so-hml.df.gov.br:8443/viadutos-aguas-claras" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="mt-4">
+            <a href="../../index.html" class="btn btn-primary">Voltar para lista de relatórios</a>
+        </div>
+    </div>
+    
+    <div class="nav-bottom">
+        <div class="container">
+            <div class="d-flex justify-content-between">
+                <span class="text-muted">Validação de migração de páginas</span>
+                <span class="text-muted">Gerado em: 26/03/2025 11:39:53</span>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Variáveis de configuração
+        const reportId = '1c95a562';
+        
+        // Função para buscar aprovações da API
+        async function fetchApprovals() {
+            try {
+                const response = await fetch(`/api/approvals/${reportId}`);
+                if (!response.ok) {
+                    throw new Error('Erro ao buscar aprovações');
+                }
+                return await response.json();
+            } catch (error) {
+                console.error('Erro:', error);
+                return {};
+            }
+        }
+        
+        // Função para atualizar o status de aprovação
+        async function updateApprovalStatus() {
+            const approvals = await fetchApprovals();
+            
+            // Atualiza o status de cada página
+            document.querySelectorAll('.page-status').forEach(statusEl => {
+                const pageId = statusEl.getAttribute('data-page-id');
+                const approval = approvals[pageId];
+                
+                if (approval && approval.status === 'approved') {
+                    const row = document.getElementById(`page-row-${pageId}`);
+                    
+                    // Se a página foi aprovada, crie uma cópia para a tabela de aprovadas
+                    const approvedTable = document.getElementById('approvedPagesTable');
+                    if (row && approvedTable) {
+                        statusEl.classList.remove('bg-danger');
+                        statusEl.classList.add('bg-success');
+                        statusEl.textContent = 'Aprovada';
+                        
+                        // Move a linha para a tabela de aprovadas
+                        const clonedRow = row.cloneNode(true);
+                        approvedTable.appendChild(clonedRow);
+                        
+                        // Oculta a linha original
+                        row.style.display = 'none';
+                    }
+                }
+            });
+        }
+        
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', updateApprovalStatus);
+        
+        // Atualiza a cada 5 segundos para pegar mudanças feitas por outros usuários
+        setInterval(updateApprovalStatus, 5000);
+    </script>
+</body>
+</html>

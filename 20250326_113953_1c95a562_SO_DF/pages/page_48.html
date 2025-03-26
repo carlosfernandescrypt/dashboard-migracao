@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validação: Serviço de Informações ao Cidadão – SIC</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { padding-top: 20px; padding-bottom: 50px; }
+        .validation-card { margin-bottom: 20px; }
+        .error-details { 
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            white-space: pre-wrap;
+        }
+        .navbar { position: fixed; bottom: 0; width: 100%; z-index: 100; }
+        .approval-btn { margin-top: 15px; }
+        .nav-bottom { 
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #f8f9fa;
+            border-top: 1px solid #ddd;
+            padding: 10px 0;
+            z-index: 1000;
+        }
+        .page-container { margin-bottom: 60px; }
+    </style>
+</head>
+<body>
+    <div class="container page-container">
+
+        <h1 class="mb-4">Detalhes da Validação</h1>
+        <div class="card validation-card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Serviço de Informações ao Cidadão – SIC</h5>
+                <span id="pageStatusBadge" class="badge bg-danger">Inválida</span>
+            </div>
+            <div class="card-body">
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <strong>URL Original:</strong> 
+                        <a href="https://www.so.df.gov.br/servico-de-informacoes-ao-cidadao-sic" target="_blank" class="btn btn-sm btn-outline-primary">https://www.so.df.gov.br/servico-de-informacoes-ao-cidadao-sic</a>
+                    </div>
+                    <div class="col-md-6">
+                        <strong>URL Migrada:</strong> 
+                        <a href="https://so-hml.df.gov.br:8443/servico-de-informacoes-ao-cidadao-sic" target="_blank" class="btn btn-sm btn-outline-primary">https://so-hml.df.gov.br:8443/servico-de-informacoes-ao-cidadao-sic</a>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <strong>Timestamp:</strong> 2025-03-25 19:34:00
+                </div>
+                
+                <div class="mb-3">
+                    <strong>Scores de Similaridade:</strong>
+                    <ul class="list-group">
+                        <li class="list-group-item">Conteúdo: 24%</li>
+                        <li class="list-group-item">Estrutura: 20%</li>
+                    </ul>
+                </div>
+                
+                <h5 class="mt-4 mb-3">Erros Encontrados:</h5>
+                <ul class="list-group">
+<li class="list-group-item text-danger">Collapsible Mismatch: Diferença no número de seções colapsáveis: Original (0) vs Migrado (5)</li><li class="list-group-item text-danger">Content Mismatch: Conteúdo principal não corresponde ao original (Similaridade: 24.00%):
+Removido: 'serviço de informações ao cidadão – sic'
+Removido: 'registrar um pedido de informação quero fazer um pedido de informação agora. o que é um pedido de informação é uma solicitação de informações sobre ações, programas, despesas, contratos, servidores, entre outros temas previstos na lei distrital de acesso à informação nº 4.990/2012. antes de registrar seu pedido, visite o link “acesso à informação” que está disponível em todos os sites do governo do distrito federal ou acesse o portal da transparência. caso não encontre as informações procuradas, registre o seu pedido . requisitos e documentos o pedido de informação deverá conter: – nome do requerente. – apresentação de documento de identificação válido (carteira de identidade, cadastro de pessoas físicas – cpf, cadastro – nacional de pessoas jurídicas – cnpj, título de eleitor, passaporte, carteira de trabalho, carteira funcional, carteira de habilitação (modelo novo) e certificado de reservista). – especificação, de forma clara e precisa, da informação requerida. – endereço físico ou eletrônico do requerente, para recebimento de comunicações ou da informação requerida. importante não será atendido pedido de informação genérico, desproporcional, desarrazoado, que exija trabalho adicional de análise, interpretação, consolidação de dados e informações, serviço de produção ou tratamento de dados que não seja de competência do órgão ou entidade. passo a passo etapas 1º passo – registro do pedido de informação. 2º passo – órgão responsável analisa a disponibilidade da informação. 3º passo – envio da resposta ao cidadão. casos em que as informações podem ser negadas  – quando o documento se referir à investigação sigilosa.  – documentos classificados como reservado, secreto ou ultrassecreto.  – quando envolver dados pessoais de terceiros, que não seja o solicitante. quando o cidadão não ficou satisfeito com a resposta quando o cidadão não recebe resposta após passados os 30 dias, se o órgão demandado não enviar resposta. você pode, em até 10 dias, registrar uma reclamação pelos mesmos canais de atendimento do registro. e o órgão terá até 5 dias para enviar resposta. o serviço é gratuito serão cobradas apenas as reproduções de:  – cópias de documentos  – gravação de mídias  – envios postais *os valores atendem à portaria nº 116, de 11 de junho de 2008 – secretaria de estado de planejamento e gestão do distrito federal. prazos canais de atendimento normas e regulamentação'</li><li class="list-group-item text-danger">HTML Structure Mismatch: Estrutura HTML divergente (Similaridade: 20.00% < 80.0%)</li>
+                </ul>
+                
+                <div class="approval-btn">
+                    <button id="approveBtn" class="btn btn-success" onclick="approvePage('page_48')">
+                        Aprovar Página
+                    </button>
+                    <button id="rejectBtn" class="btn btn-danger ms-2" onclick="rejectPage('page_48')">
+                        Rejeitar Página
+                    </button>
+                    <div id="approvalStatus" class="mt-2"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-4">
+            <a href="../index.html" class="btn btn-primary">Voltar para o Dashboard</a>
+        </div>
+    </div>
+    
+    <div class="nav-bottom">
+        <div class="container">
+            <div class="d-flex justify-content-between">
+                <span class="text-muted">Validação de migração de páginas</span>
+                <span class="text-muted">Gerado em: 26/03/2025 11:39:53</span>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Variáveis de configuração
+        const reportId = '1c95a562';
+        const pageId = 'page_48';
+        
+        // Função para buscar aprovações da API
+        async function fetchApprovals() {
+            try {
+                const response = await fetch(`/api/approvals/${reportId}/${pageId}`);
+                if (!response.ok) {
+                    throw new Error('Erro ao buscar aprovações');
+                }
+                return await response.json();
+            } catch (error) {
+                console.error('Erro:', error);
+                return {};
+            }
+        }
+        
+        // Função para enviar aprovação para a API
+        async function sendApproval(status) {
+            try {
+                const response = await fetch(`/api/approvals/${reportId}/${pageId}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        status: status,
+                        user: 'validador'
+                    }),
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Erro ao enviar aprovação');
+                }
+                
+                return await response.json();
+            } catch (error) {
+                console.error('Erro:', error);
+                alert('Erro ao enviar aprovação. Tente novamente.');
+                return null;
+            }
+        }
+        
+        // Gerenciamento de aprovação usando a API
+        async function approvePage() {
+            const result = await sendApproval('approved');
+            if (result) {
+                updateUI();
+                alert("Página aprovada! Esta página aparecerá na seção de páginas aprovadas quando você voltar ao dashboard.");
+            }
+        }
+        
+        async function rejectPage() {
+            const result = await sendApproval('rejected');
+            if (result) {
+                updateUI();
+            }
+        }
+        
+        async function updateUI() {
+            const approval = await fetchApprovals();
+            const status = document.getElementById('approvalStatus');
+            const approveBtn = document.getElementById('approveBtn');
+            const rejectBtn = document.getElementById('rejectBtn');
+            const statusBadge = document.getElementById('pageStatusBadge');
+            
+            if (approval && approval.status) {
+                if (approval.status === 'approved') {
+                    status.innerHTML = '<div class="alert alert-success">Página aprovada!</div>';
+                    statusBadge.textContent = 'Aprovada';
+                    statusBadge.classList.remove('bg-danger');
+                    statusBadge.classList.add('bg-success');
+                    approveBtn.disabled = true;
+                    rejectBtn.disabled = false;
+                } else {
+                    status.innerHTML = '<div class="alert alert-danger">Página rejeitada!</div>';
+                    statusBadge.textContent = 'Rejeitada';
+                    statusBadge.classList.remove('bg-success');
+                    statusBadge.classList.add('bg-danger');
+                    approveBtn.disabled = false;
+                    rejectBtn.disabled = true;
+                }
+            } else {
+                status.innerHTML = '';
+                statusBadge.textContent = 'Inválida';
+                statusBadge.classList.remove('bg-success');
+                statusBadge.classList.add('bg-danger');
+                approveBtn.disabled = false;
+                rejectBtn.disabled = false;
+            }
+        }
+        
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', updateUI);
+    </script>
+</body>
+</html>
