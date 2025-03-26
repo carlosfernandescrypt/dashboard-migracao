@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validação: Ouvidoria</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { padding-top: 20px; padding-bottom: 50px; }
+        .validation-card { margin-bottom: 20px; }
+        .error-details { 
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            white-space: pre-wrap;
+        }
+        .navbar { position: fixed; bottom: 0; width: 100%; z-index: 100; }
+        .approval-btn { margin-top: 15px; }
+        .nav-bottom { 
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #f8f9fa;
+            border-top: 1px solid #ddd;
+            padding: 10px 0;
+            z-index: 1000;
+        }
+        .page-container { margin-bottom: 60px; }
+    </style>
+</head>
+<body>
+    <div class="container page-container">
+
+        <h1 class="mb-4">Detalhes da Validação</h1>
+        <div class="card validation-card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Ouvidoria</h5>
+                <span id="pageStatusBadge" class="badge bg-danger">Inválida</span>
+            </div>
+            <div class="card-body">
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <strong>URL Original:</strong> 
+                        <a href="https://www.sepd.df.gov.br/category/ouvidoria" target="_blank" class="btn btn-sm btn-outline-primary">https://www.sepd.df.gov.br/category/ouvidoria</a>
+                    </div>
+                    <div class="col-md-6">
+                        <strong>URL Migrada:</strong> 
+                        <a href="https://sepd-hml.df.gov.br:8443/category/ouvidoria" target="_blank" class="btn btn-sm btn-outline-primary">https://sepd-hml.df.gov.br:8443/category/ouvidoria</a>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <strong>Timestamp:</strong> 2025-03-25 22:51:41
+                </div>
+                
+                <div class="mb-3">
+                    <strong>Scores de Similaridade:</strong>
+                    <ul class="list-group">
+                        <li class="list-group-item">Conteúdo: 1%</li>
+                        <li class="list-group-item">Estrutura: 3%</li>
+                    </ul>
+                </div>
+                
+                <h5 class="mt-4 mb-3">Erros Encontrados:</h5>
+                <ul class="list-group">
+<li class="list-group-item text-danger">Content Mismatch: Conteúdo principal não corresponde ao original (Similaridade: 1.00%):
+Adicionado: 'o que é'
+Adicionado: 'a ouvidoria é um espaço de comunicação entre o cidadão e o governo onde você pode registrar suas demandas sobre os serviços públicos. o que você pode registrar na ouvidoria você pode fazer denúncia, reclamação, sugestão e elogio. o que não é considerada manifestação de ouvidoria para o governo do distrito federal: demandas referentes à esfera federal ou sobre outros estados. irregularidades ocorridas entre particulares, sem envolvimento de servidor ou órgão público. canais de atendimento ao cidadão: você pode ligar para a central 162, acessar o sistema ouvdf ou ainda ser atendido presencialmente na ouvidoria-geral do df. de segunda a sexta de 7h às 21h ligação gratuita para telefone fixo e celular acesse o sistema ouvdf aqui ouvidoria-geral do df de segunda a sexta de 9h às 12h e de 14h às 17h anexo do palácio do buriti 12º andar – sala 1203 prazo de vinte (20) dias corridos para a resposta ao cidadão a contar da data do registro da manifestação são dez (10) dias para informar ao cidadão as primeiras providências adotadas – (art . 24 do decreto nº 36.462/2015) no máximo mais dez (10) dias para apurar e informar o resultado ao cidadão – (art. 25 do decreto nº 36.462/2015) prazo para responder denúncias o prazo poderá ser prorrogado pelo mesmo período de vinte (20) dias (art. 25 parágrafo 1º, do decreto nº36.462/2015) garantias: segurança – restrição de acesso a dados pessoais – comunicações, pelo sistema de ouvidoria, sobre o andamento da manifestação conforme prazos legais – atendimento por equipe especializada. elementos fundamentais para o registro de uma denúncia nomes de pessoas e empresas envolvidas quando ocorreu o fato onde ocorreu o fato quem pode testemunhar se a pessoa pode apresentar provas registro identificado apresentação do documento de identificação válido (carteira de identidade; cadastro de pessoas físicas – cpf; cadastro nacional de pessoas jurídicas – cnpj; título de eleitor; passaporte; carteira de trabalho; carteira funcional; carteira nacional de habilitação (modelo novo) e certificado de reservista). possibilidade de sigilo conforme art. 23, inciso i, do decreto nº 36.462/2015. registro anônimo haverá análise preliminar para confirmar se os fatos apresentados são verdadeiros. tratamento específico para denúncias avaliação, classificação e encaminhamento realizados pela ouvidoria-geral do distrito federal. normas e regulamentações lei nº 4.896/2012 decreto nº 36.462/2015 instrução normativa nº 01/2017'</li><li class="list-group-item text-danger">HTML Structure Mismatch: Estrutura HTML divergente (Similaridade: 3.00% < 80.0%)</li><li class="list-group-item text-danger">Menu Mismatch: Menu não corresponde ao original:
+Diferença no número de links visíveis: Original (26) vs Migrado (0)</li>
+                </ul>
+                
+                <div class="approval-btn">
+                    <button id="approveBtn" class="btn btn-success" onclick="approvePage('page_10')">
+                        Aprovar Página
+                    </button>
+                    <button id="rejectBtn" class="btn btn-danger ms-2" onclick="rejectPage('page_10')">
+                        Rejeitar Página
+                    </button>
+                    <div id="approvalStatus" class="mt-2"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-4">
+            <a href="../index.html" class="btn btn-primary">Voltar para o Dashboard</a>
+        </div>
+    </div>
+    
+    <div class="nav-bottom">
+        <div class="container">
+            <div class="d-flex justify-content-between">
+                <span class="text-muted">Validação de migração de páginas</span>
+                <span class="text-muted">Gerado em: 26/03/2025 15:01:55</span>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Variáveis de configuração
+        const reportId = 'c2f90532';
+        const pageId = 'page_10';
+        
+        // Função para buscar aprovações da API
+        async function fetchApprovals() {
+            try {
+                const response = await fetch(`/api/approvals/${reportId}/${pageId}`);
+                if (!response.ok) {
+                    throw new Error('Erro ao buscar aprovações');
+                }
+                return await response.json();
+            } catch (error) {
+                console.error('Erro:', error);
+                return {};
+            }
+        }
+        
+        // Função para enviar aprovação para a API
+        async function sendApproval(status) {
+            try {
+                const response = await fetch(`/api/approvals/${reportId}/${pageId}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        status: status,
+                        user: 'validador'
+                    }),
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Erro ao enviar aprovação');
+                }
+                
+                return await response.json();
+            } catch (error) {
+                console.error('Erro:', error);
+                alert('Erro ao enviar aprovação. Tente novamente.');
+                return null;
+            }
+        }
+        
+        // Gerenciamento de aprovação usando a API
+        async function approvePage() {
+            const result = await sendApproval('approved');
+            if (result) {
+                updateUI();
+                alert("Página aprovada! Esta página aparecerá na seção de páginas aprovadas quando você voltar ao dashboard.");
+            }
+        }
+        
+        async function rejectPage() {
+            const result = await sendApproval('rejected');
+            if (result) {
+                updateUI();
+            }
+        }
+        
+        async function updateUI() {
+            const approval = await fetchApprovals();
+            const status = document.getElementById('approvalStatus');
+            const approveBtn = document.getElementById('approveBtn');
+            const rejectBtn = document.getElementById('rejectBtn');
+            const statusBadge = document.getElementById('pageStatusBadge');
+            
+            if (approval && approval.status) {
+                if (approval.status === 'approved') {
+                    status.innerHTML = '<div class="alert alert-success">Página aprovada!</div>';
+                    statusBadge.textContent = 'Aprovada';
+                    statusBadge.classList.remove('bg-danger');
+                    statusBadge.classList.add('bg-success');
+                    approveBtn.disabled = true;
+                    rejectBtn.disabled = false;
+                } else {
+                    status.innerHTML = '<div class="alert alert-danger">Página rejeitada!</div>';
+                    statusBadge.textContent = 'Rejeitada';
+                    statusBadge.classList.remove('bg-success');
+                    statusBadge.classList.add('bg-danger');
+                    approveBtn.disabled = false;
+                    rejectBtn.disabled = true;
+                }
+            } else {
+                status.innerHTML = '';
+                statusBadge.textContent = 'Inválida';
+                statusBadge.classList.remove('bg-success');
+                statusBadge.classList.add('bg-danger');
+                approveBtn.disabled = false;
+                rejectBtn.disabled = false;
+            }
+        }
+        
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', updateUI);
+    </script>
+</body>
+</html>

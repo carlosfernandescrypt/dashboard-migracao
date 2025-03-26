@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Validação - SEPD</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { padding-top: 20px; padding-bottom: 50px; }
+        .validation-card { margin-bottom: 20px; }
+        .error-details { 
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            white-space: pre-wrap;
+        }
+        .navbar { position: fixed; bottom: 0; width: 100%; z-index: 100; }
+        .approval-btn { margin-top: 15px; }
+        .nav-bottom { 
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #f8f9fa;
+            border-top: 1px solid #ddd;
+            padding: 10px 0;
+            z-index: 1000;
+        }
+        .page-container { margin-bottom: 60px; }
+    </style>
+</head>
+<body>
+    <div class="container page-container">
+
+        <h1 class="mb-4">Dashboard de Validação</h1>
+        <div class="row mb-4">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Relatório</h5>
+                        <p class="card-text"><strong>Nome:</strong> SEPD</p>
+                        <p class="card-text"><strong>ID:</strong> c2f90532</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-white bg-success">
+                    <div class="card-body">
+                        <h5 class="card-title">Páginas Válidas</h5>
+                        <p class="card-text display-4">84</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-white bg-danger">
+                    <div class="card-body">
+                        <h5 class="card-title">Páginas Inválidas</h5>
+                        <p class="card-text display-4">18</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h2 class="mb-3">Páginas com erros</h2>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Título</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="invalidPagesTable">
+
+                <tr id="page-row-page_1">
+                    <td>Atas</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_1">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_1.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.sepd.df.gov.br/menu-sec/atas" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/atual-composicao" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_2">
+                    <td>Programas e Ações</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_2">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_2.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.sepd.df.gov.br/category/noticias-com-fotos-fundo-azul" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/noticias-com-fotos-fundo-azul" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_3">
+                    <td>Novo Submenu</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_3">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_3.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.sepd.df.gov.br/category/noticias-com-fotos-fundo-azul/novo-submenu" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/category/noticias-com-fotos-fundo-azul/novo-submenu" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_4">
+                    <td>Comunicação</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_4">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_4.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.sepd.df.gov.br/category/comunicacao" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/category/comunicacao" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_5">
+                    <td>Acesso à Informação</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_5">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_5.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.sepd.df.gov.br/category/acesso-a-informacao" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/category/acesso-a-informacao" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_6">
+                    <td>Direitos e Benefícios</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_6">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_6.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.sepd.df.gov.br/direitos-e-beneficios-2" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/direitos-e-beneficios-2" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_7">
+                    <td>Direitos e Benefícios</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_7">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_7.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.sepd.df.gov.br/direitos-e-beneficios" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/direitos-e-beneficios" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_8">
+                    <td>Institucional</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_8">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_8.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.sepd.df.gov.br/institucional" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/institucional" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_9">
+                    <td>Despesas</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_9">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_9.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.sepd.df.gov.br/sobre-despesas" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/sobre-despesas" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_10">
+                    <td>Ouvidoria</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_10">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_10.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.sepd.df.gov.br/category/ouvidoria" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/category/ouvidoria" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_11">
+                    <td>Ouvidoria</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_11">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_11.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.sepd.df.gov.br/ouvidoria-2" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/ouvidoria-2" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_12">
+                    <td>Carta de Serviços</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_12">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_12.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.sepd.df.gov.br/category/carta-de-servicos" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/category/carta-de-servicos" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_13">
+                    <td>Passe Livre Especial (BRB Mobilidade)</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_13">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_13.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.sepd.df.gov.br/passe-livre-especial-brb-mobilidade-2" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/passe-livre-especial-brb-mobilidade-2" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_14">
+                    <td>Apresentação da Carta</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_14">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_14.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.sepd.df.gov.br/apresentacao-da-carta" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/apresentacao-da-carta" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_15">
+                    <td>Serviço de Informações ao Cidadão – SIC</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_15">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_15.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.sepd.df.gov.br/servico-de-informacoes-ao-cidadao-sic" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/servico-de-informacoes-ao-cidadao-sic" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_16">
+                    <td>Atendimento a Advogados e Cidadãos</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_16">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_16.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.sepd.df.gov.br/atendimento-a-advogados-e-cidadaos" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/atendimento-a-advogados-e-cidadaos" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_17">
+                    <td>Avalie as Cartas de Serviços ao Cidadão</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_17">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_17.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.sepd.df.gov.br/avalie-as-cartas-de-servicos-ao-cidadao" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/avalie-as-cartas-de-servicos-ao-cidadao" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr id="page-row-page_18">
+                    <td>Imprima aqui a Carta de Serviços</td>
+                    <td><span class="badge bg-danger page-status" data-page-id="page_18">Inválida</span></td>
+                    <td>
+                        <a href="./pages/page_18.html" class="btn btn-sm btn-primary">Ver detalhes</a>
+                        <a href="https://www.sepd.df.gov.br/imprima-aqui-a-carta-de-servicos" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/imprima-aqui-a-carta-de-servicos" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <h2 class="mt-4 mb-3">Páginas aprovadas</h2>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Título</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="approvedPagesTable">
+
+                <tr>
+                    <td>Página Inicial</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/pagina-exemplo" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/pagina-exemplo" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Institucional</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://sepd-hml.df.gov.br:8443/institucional-1" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/institucional-1" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Competência</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/menu-sec/sobre-a-secretaria/competencia" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/menu-sec/sobre-a-secretaria/competencia" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Histórico</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/pagina-exemplo/historico" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/pagina-exemplo/historico" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Histórico</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/historico-3" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/historico-3" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Missão / Visão / Valores / Competência</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/menu-sec/sobre-a-secretaria/missao-visao-valores" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/menu-sec/sobre-a-secretaria/missao-visao-valores" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Missão, visão e valores</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/sobre-a-secretaria" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/sobre-a-secretaria" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sobre a Secretaria</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/menu-sec/sobre-a-secretaria" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/menu-sec/sobre-a-secretaria" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Quem é quem</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/menu-sec/sobre-a-secretaria/quem-e-quem" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/menu-sec/sobre-a-secretaria/quem-e-quem" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Quem é quem</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/quem-e-quem" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/quem-e-quem" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Perfil do Secretário</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/menu-sec/sobre-a-secretaria/perfil-da-secretaria" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/menu-sec/sobre-a-secretaria/perfil-da-secretaria" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Perfil do Secretário</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/noticia-1" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/noticia-1" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Regimento</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/menu-sec/sobre-a-secretaria/organograma-regimento" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/menu-sec/sobre-a-secretaria/organograma-regimento" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Certificados</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/certificados" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/certificados" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Legislação</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://sepd-hml.df.gov.br:8443/legislacao-1" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/legislacao-1" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Legislação</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/legislacao" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/legislacao" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Legislação Federal</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/menu-sec/legislacao-federal" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/menu-sec/legislacao-federal" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Legislação Distrital</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/legislacao-distrital" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/legislacao-distrital" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Menu SEC</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/menu-sec" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/menu-sec" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Coddede</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://sepd-hml.df.gov.br:8443/leidecriacao" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/leidecriacao" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Atual composição</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/atual-composicao" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/atual-composicao" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Resoluções</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/menu-sec/resolucoes" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/menu-sec/resolucoes" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Central de Libras</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://sepd-hml.df.gov.br:8443/centraldelibras" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/centraldelibras" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Central de Intermediação em Libras (CIL) - GDF</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/central-de-intermediacao-em-libras-cil-gdf" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/central-de-intermediacao-em-libras-cil-gdf" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Central de Interpretação de Libras (CIL)</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/central-de-interpretacao-de-libras-cil" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/central-de-interpretacao-de-libras-cil" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Companhia de Desenvolvimento Habitacional do DF (Codhab)</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/companhia-de-desenvolvimento-habitacional-do-df-codhab" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/companhia-de-desenvolvimento-habitacional-do-df-codhab" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Direitos PCD</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://sepd-hml.df.gov.br:8443/direitospcd" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/direitospcd" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Saiba como solicitar sua cadeira de rodas</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/saiba-como-solicitar-cadeira-de-rodas" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/saiba-como-solicitar-cadeira-de-rodas" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Como solicitar o Passe Livre Especial</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/passe-livre-especial-saiba-como-pedir-o-seu" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/passe-livre-especial-saiba-como-pedir-o-seu" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Outros direitos</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://sepd-hml.df.gov.br:8443/outrosdireitos-2" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/outrosdireitos-2" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Órteses e Próteses – Agendar avaliação</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/orteses-e-proteses-agendar-avaliacao" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/orteses-e-proteses-agendar-avaliacao" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Iniciar Cadastro da Pessoa com Deficiência</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/iniciar-cadastro-da-pessoa-com-deficiencia" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/iniciar-cadastro-da-pessoa-com-deficiencia" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Notícias Coddede</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/menu-sec/lei-de-criacao/noticias-codeded" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/menu-sec/lei-de-criacao/noticias-codeded" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Assessoria de imprensa</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/assessoria-de-imprensa" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/assessoria-de-imprensa" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Clipping de notícias</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/clipping-de-noticias" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/clipping-de-noticias" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Saiba Mais</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/saiba-mais" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/saiba-mais" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Empregabilidade</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://sepd-hml.df.gov.br:8443/empregabilidade-1" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/empregabilidade-1" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Cadastro de Empregabilidade</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/https-sepd-df-gov-br-category-empregabilidade-cadastro-de-empregabilidade" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/https-sepd-df-gov-br-category-empregabilidade-cadastro-de-empregabilidade" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Agência do Trabalhador</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/agencia-do-trabalhador" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/agencia-do-trabalhador" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Contatos</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/menu-sec/sobre-a-secretaria/contatos" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/menu-sec/sobre-a-secretaria/contatos" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Carreta da Inclusão</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/carreta-da-inclusao-projeto-itinerante-oferece-servicos-essenciais-e-experiencias-inclusivas-para-pessoas-com-deficiencia" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/carreta-da-inclusao-projeto-itinerante-oferece-servicos-essenciais-e-experiencias-inclusivas-para-pessoas-com-deficiencia" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Gerência de Órteses e Próteses</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/gerencia-de-orteses-e-proteses" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/gerencia-de-orteses-e-proteses" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Novos membros do Conselho de Defesa dos Direitos da Pessoa com Deficiência tomam posse</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/novos-membros-do-conselho-de-defesa-dos-direitos-da-pessoa-com-deficiencia-tomam-posse" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/novos-membros-do-conselho-de-defesa-dos-direitos-da-pessoa-com-deficiencia-tomam-posse" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>DF institui 5 de setembro como Dia da Cultura Surda</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/df-institui-5-de-setembro-como-dia-da-cultura-surda" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/df-institui-5-de-setembro-como-dia-da-cultura-surda" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Pessoa com Deficiência: parcerias fortalecidas para melhorar atendimento</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/pessoa-com-deficiencia-parcerias-fortalecidas-para-melhorar-atendimento" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/pessoa-com-deficiencia-parcerias-fortalecidas-para-melhorar-atendimento" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>UBS 7 e Hospital Regional do Gama recebem QR Codes do DF Libras</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/ubs-7-e-hospital-regional-do-gama-recebem-qr-codes-do-df-libras" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/ubs-7-e-hospital-regional-do-gama-recebem-qr-codes-do-df-libras" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Primeiro atendimento do DF Libras ocorre em Sobradinho</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/primeiro-atendimento-do-df-libras-ocorre-em-sobradinho" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/primeiro-atendimento-do-df-libras-ocorre-em-sobradinho" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Equiparado valor da Bolsa Atleta de esportistas olímpicos e paralímpicos</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/equiparado-valor-da-bolsa-atleta-de-esportistas-olimpicos-e-paralimpicos" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/equiparado-valor-da-bolsa-atleta-de-esportistas-olimpicos-e-paralimpicos" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Nova ferramenta garante atendimento virtual em Libras em tempo integral</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/nova-ferramenta-garante-atendimento-virtual-em-libras-em-tempo-integral" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/nova-ferramenta-garante-atendimento-virtual-em-libras-em-tempo-integral" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>DF Acessível garante transporte gratuito a pessoas com deficiências severas</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/df-acessivel-garante-transporte-gratuito-a-pessoas-com-deficiencias-severas" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/df-acessivel-garante-transporte-gratuito-a-pessoas-com-deficiencias-severas" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Regulamentado cordão de girassol para identificação de deficiências ocultas</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/regulamentado-cordao-de-girassol-para-identificacao-de-deficiencias-ocultas" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/regulamentado-cordao-de-girassol-para-identificacao-de-deficiencias-ocultas" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Pessoas com deficiência comemoram conquistas nas políticas públicas do DF</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/pessoas-com-deficiencia-comemoram-conquistas-nas-politicas-publicas-do-df" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/pessoas-com-deficiencia-comemoram-conquistas-nas-politicas-publicas-do-df" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>GDF entrega 250 documentos de identificação para pessoas com deficiência</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/gdf-entrega-250-documentos-de-identificacao-para-pessoas-com-deficiencia" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/gdf-entrega-250-documentos-de-identificacao-para-pessoas-com-deficiencia" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Acordo com o MP do Trabalho garante emprego para pessoas com deficiência</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/acordo-com-o-mp-do-trabalho-garante-emprego-para-pessoas-com-deficiencia" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/acordo-com-o-mp-do-trabalho-garante-emprego-para-pessoas-com-deficiencia" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Conheça a Lei de Acesso à Informação</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/conheca-a-lei" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/conheca-a-lei" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Auditorias</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/auditorias" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/auditorias" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Convênios</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/convenios" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/convenios" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Licitações</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/sobre-licitacoes" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/sobre-licitacoes" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Contratos</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/sobre-contratos" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/sobre-contratos" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Servidores</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/consulta-aos-servidores" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/consulta-aos-servidores" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Informações Classificadas</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/informacoes-classificadas" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/informacoes-classificadas" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Perguntas Frequentes da LAI</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/perguntas-frequentes-da-lai" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/perguntas-frequentes-da-lai" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Serviço de Informação ao Cidadão – SIC</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/servico-de-informacao-ao-cidadao-sic" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/servico-de-informacao-ao-cidadao-sic" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Perguntas Frequentes da SEPD/DF</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/19495-2" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/pt/perguntas-frequentes-da-sepd-df" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Central de Intermediação em Libras (CIL) – GDF</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/menu-sec/cil" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/menu-sec/cil" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Instituído no DF Cartão de Identificação de PcD</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/instituido-no-df-cartao-de-identificacao-de-pcd" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/instituido-no-df-cartao-de-identificacao-de-pcd" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>texto_lei_acesso_informacao</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/texto_lei_acesso_informacao" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/texto_lei_acesso_informacao" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Central de Interpretação de Libras (CIL) – GDF</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/central-de-interpretacao-de-libras-cil-gdf" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/central-de-interpretacao-de-libras-cil-gdf" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Cartilha Evento Acessível</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/21775-2" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/21775-2" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Manual da Empregabilidade</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/manual-da-empregabilidade" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/manual-da-empregabilidade" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Cadastro Órtese e Próteses</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/cadastro-ortese-e-proteses" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/cadastro-ortese-e-proteses" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Gerência de Órtese e Prótese</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/ortese-e-protese" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/ortese-e-protese" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Página sem Nome 1</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/18537-2" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/18537-2" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Página sem Nome 2</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/18533-2" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/18533-2" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Página sem Nome 3</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/19840-2" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/19840-2" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Página sem Nome 4</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/22324-2" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/22324-2" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Página sem Nome 5</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/19081-2" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/19081-2" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Vídeo</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/video" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/video" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Audio</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/audio" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/audio" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Flickr</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/flickr" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/flickr" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Gerenciar Módulos da Home</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/gerenciar-modulos-da-home" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/gerenciar-modulos-da-home" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Banner Programas</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/banner-programas" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/banner-programas" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Transparência</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://sepd-hml.df.gov.br:8443/transparencia" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/transparencia" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Portal da Transparência</td>
+                    <td><span class="badge bg-success">Válida</span></td>
+                    <td>
+                        <a href="https://www.sepd.df.gov.br/portal-da-transparencia" target="_blank" class="btn btn-sm btn-outline-secondary">Original</a>
+                        <a href="https://sepd-hml.df.gov.br:8443/portal-da-transparencia" target="_blank" class="btn btn-sm btn-outline-secondary">Migrada</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="mt-4">
+            <a href="../../index.html" class="btn btn-primary">Voltar para lista de relatórios</a>
+        </div>
+    </div>
+    
+    <div class="nav-bottom">
+        <div class="container">
+            <div class="d-flex justify-content-between">
+                <span class="text-muted">Validação de migração de páginas</span>
+                <span class="text-muted">Gerado em: 26/03/2025 15:01:55</span>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Variáveis de configuração
+        const reportId = 'c2f90532';
+        
+        // Função para buscar aprovações da API
+        async function fetchApprovals() {
+            try {
+                const response = await fetch(`/api/approvals/${reportId}`);
+                if (!response.ok) {
+                    throw new Error('Erro ao buscar aprovações');
+                }
+                return await response.json();
+            } catch (error) {
+                console.error('Erro:', error);
+                return {};
+            }
+        }
+        
+        // Função para atualizar o status de aprovação
+        async function updateApprovalStatus() {
+            const approvals = await fetchApprovals();
+            
+            // Atualiza o status de cada página
+            document.querySelectorAll('.page-status').forEach(statusEl => {
+                const pageId = statusEl.getAttribute('data-page-id');
+                const approval = approvals[pageId];
+                
+                if (approval && approval.status === 'approved') {
+                    const row = document.getElementById(`page-row-${pageId}`);
+                    
+                    // Se a página foi aprovada, crie uma cópia para a tabela de aprovadas
+                    const approvedTable = document.getElementById('approvedPagesTable');
+                    if (row && approvedTable) {
+                        statusEl.classList.remove('bg-danger');
+                        statusEl.classList.add('bg-success');
+                        statusEl.textContent = 'Aprovada';
+                        
+                        // Move a linha para a tabela de aprovadas
+                        const clonedRow = row.cloneNode(true);
+                        approvedTable.appendChild(clonedRow);
+                        
+                        // Oculta a linha original
+                        row.style.display = 'none';
+                    }
+                }
+            });
+        }
+        
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', updateApprovalStatus);
+        
+        // Atualiza a cada 5 segundos para pegar mudanças feitas por outros usuários
+        setInterval(updateApprovalStatus, 5000);
+    </script>
+</body>
+</html>

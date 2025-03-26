@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validação: Atas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { padding-top: 20px; padding-bottom: 50px; }
+        .validation-card { margin-bottom: 20px; }
+        .error-details { 
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            white-space: pre-wrap;
+        }
+        .navbar { position: fixed; bottom: 0; width: 100%; z-index: 100; }
+        .approval-btn { margin-top: 15px; }
+        .nav-bottom { 
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #f8f9fa;
+            border-top: 1px solid #ddd;
+            padding: 10px 0;
+            z-index: 1000;
+        }
+        .page-container { margin-bottom: 60px; }
+    </style>
+</head>
+<body>
+    <div class="container page-container">
+
+        <h1 class="mb-4">Detalhes da Validação</h1>
+        <div class="card validation-card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Atas</h5>
+                <span id="pageStatusBadge" class="badge bg-danger">Inválida</span>
+            </div>
+            <div class="card-body">
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <strong>URL Original:</strong> 
+                        <a href="https://www.sepd.df.gov.br/menu-sec/atas" target="_blank" class="btn btn-sm btn-outline-primary">https://www.sepd.df.gov.br/menu-sec/atas</a>
+                    </div>
+                    <div class="col-md-6">
+                        <strong>URL Migrada:</strong> 
+                        <a href="https://sepd-hml.df.gov.br:8443/atual-composicao" target="_blank" class="btn btn-sm btn-outline-primary">https://sepd-hml.df.gov.br:8443/atual-composicao</a>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <strong>Timestamp:</strong> 2025-03-25 22:47:11
+                </div>
+                
+                <div class="mb-3">
+                    <strong>Scores de Similaridade:</strong>
+                    <ul class="list-group">
+                        <li class="list-group-item">Conteúdo: 19%</li>
+                        <li class="list-group-item">Estrutura: 26%</li>
+                    </ul>
+                </div>
+                
+                <h5 class="mt-4 mb-3">Erros Encontrados:</h5>
+                <ul class="list-group">
+<li class="list-group-item text-danger">Content Mismatch: Conteúdo principal não corresponde ao original (Similaridade: 19.00%):
+Alterado de 'das atas: atas anteriores' para 'da composição: presidente: flávio pereira dos santos (governo) vice-presidente: ana paula batista soledade (sociedade civil) triênio: 2024/2026 o conselho dos direitos da pessoa com deficiência é composto por vinte e quatro membros e respectivos suplentes, sendo doze representantes governamentais e doze representantes da sociedade civil,'
+Alterado de 'esta gestão, acessem clicando' para 'saber: representantes do governo 1. secretaria extraordinária da pessoa com deficiência do distrito federal titular: flávio pereira dos santos suplente: alexandre ferreira de castro 2. defensoria pública do distrito federal titular: wemer hesbom borges da silva suplente: amanda cristina ribeiro fernandes 3. secretaria de estado de desenvolvimento social do distrito federal titular: bárbara morais souto suplente: nathani valéria de almeida honório 4. secretaria de estado de saúde do distrito federal titular: aline couto cesar suplente: carla valença daher 5. secretaria de estado de desenvolvimento urbano e habitação do distrito federal titular: marecilda sampaio da rocha suplente: hélcio luciano ferreira lopes 6. secretaria de estado de educação do distrito federal titular: vera lúcia ribeiro de barros suplente: renata antunes de souza 7. secretaria de estado de esporte e lazer do distrito federal titular: marcela frias pimentel parsons suplente: marcelo rozemberg ottoline de oliveira 8. secretaria de estado de justiça e cidadania do distrito federal titular: elianildo da silva nascimento suplente: patrícia rodrigues souza leite 9. secretaria de estado de desenvolvimento econômico, trabalho e renda do distrito federal titular: deivid soares da silva suplente: ranulfo do nascimento 10. secretaria de estado transporte e mobilidade do distrito federal titular: jorge josé pinto de castro suplente: bárbara estrela de aquino praça 11. secretaria de estado de obras e infraestrutura do distrito federal titular: edson josé vieira suplente: cynthia melo shishido e ribeiro representantes da sociedade civil 1. associação brasiliense de deficientes visuais – abdv (representante do segmento das pessoas com deficiência visual) titular: denise lúcia braga melo suplente: marcos antônio do espírito santo 2. associação de pais e amigos dos excepcionais do distrito federal – apae-df (representantes do segmento das pessoas com deficiência mental ou intelectual) titular: bárbara lins suplente: pedro gustavo fernandes matias pereira 3. federação brasiliense desportiva dos surdos – fbds (representantes do segmento das pessoas com deficiência auditiva ou surdez) titular: mariana siqueira rola silva alves suplente: valdo ribeiro resende da nóbrega 4. associação dos deficientes do gama e entorno – adge (representante do segmento das pessoas com deficiência física) titular: matheus antônio rocha braga suplente: hélcio gomes ferreira 5. associação dos ostomizados do distrito federal aosdf (representante do segmento das pessoas com deficiência física) titular: ana paula batista soledade suplente: karina ramos de sousa 6. movimento orgulho autista do brasil – moab (representante do segmento das pessoas com transtorno do espectro autista) titular: edilson barbosa do nascimento suplente: viviani pereira amanajas guimarães 7. associação de pais, amigos e pessoas com deficiência, de funcionários do banco do brasil e da comunidade – apabb (representantes do segmento das pessoas com deficiência múltipla) titular: célia maria teixeira neves suplente: luanna christinne de castro souza franco 8. associação df down (representantes do segmento das pessoas com síndromes que causam deficiências) titular: gabriel sant’anna reis suplente: edilene dos santos veras 9. central única dos trabalhadores do distrito federal – cut-df (instituição sindical com representação'
+Alterado de 'link: https://coddede.blogspot.com/p/atas.html do local, contatos e funcionamento do conselho dos direitos' para 'distrito federal, com atuação na área de atenção às pessoas com deficiência) titular: carlos de souza maciel suplente: rafaella gomes freitas de oliveira 10. fundação universidade de brasília – fub (representante da comunidade científica, cuja atenção seja correlata aos objetivos das políticas de inclusão social'
+Alterado de 'deficiência – coddede/df conselho de defesa de direitos da pessoa com deficiência do distrito federal – coddede-df estação de metrô da 112/212 asa sul – brasília/df – cep 70375-000 telefone 3345-6551 blog: coddede link: https://coddede.blogspot.com/ facebook: @coddededf link: https://www.facebook.com/coddededf instagram: coddededf link: https://instagram.com/coddededf?igshid=hlbxphyaa4o3' para 'deficiência) titular: sinara pollon zardo suplente: luma magno 11. ordem dos advogados do brasil, seccional do distrito federal titular: gerson wilder de sousa melo suplente: phellip alexander alcântara ponce'</li><li class="list-group-item text-danger">HTML Structure Mismatch: Estrutura HTML divergente (Similaridade: 26.00% < 80.0%)</li>
+                </ul>
+                
+                <div class="approval-btn">
+                    <button id="approveBtn" class="btn btn-success" onclick="approvePage('page_1')">
+                        Aprovar Página
+                    </button>
+                    <button id="rejectBtn" class="btn btn-danger ms-2" onclick="rejectPage('page_1')">
+                        Rejeitar Página
+                    </button>
+                    <div id="approvalStatus" class="mt-2"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-4">
+            <a href="../index.html" class="btn btn-primary">Voltar para o Dashboard</a>
+        </div>
+    </div>
+    
+    <div class="nav-bottom">
+        <div class="container">
+            <div class="d-flex justify-content-between">
+                <span class="text-muted">Validação de migração de páginas</span>
+                <span class="text-muted">Gerado em: 26/03/2025 15:01:55</span>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Variáveis de configuração
+        const reportId = 'c2f90532';
+        const pageId = 'page_1';
+        
+        // Função para buscar aprovações da API
+        async function fetchApprovals() {
+            try {
+                const response = await fetch(`/api/approvals/${reportId}/${pageId}`);
+                if (!response.ok) {
+                    throw new Error('Erro ao buscar aprovações');
+                }
+                return await response.json();
+            } catch (error) {
+                console.error('Erro:', error);
+                return {};
+            }
+        }
+        
+        // Função para enviar aprovação para a API
+        async function sendApproval(status) {
+            try {
+                const response = await fetch(`/api/approvals/${reportId}/${pageId}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        status: status,
+                        user: 'validador'
+                    }),
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Erro ao enviar aprovação');
+                }
+                
+                return await response.json();
+            } catch (error) {
+                console.error('Erro:', error);
+                alert('Erro ao enviar aprovação. Tente novamente.');
+                return null;
+            }
+        }
+        
+        // Gerenciamento de aprovação usando a API
+        async function approvePage() {
+            const result = await sendApproval('approved');
+            if (result) {
+                updateUI();
+                alert("Página aprovada! Esta página aparecerá na seção de páginas aprovadas quando você voltar ao dashboard.");
+            }
+        }
+        
+        async function rejectPage() {
+            const result = await sendApproval('rejected');
+            if (result) {
+                updateUI();
+            }
+        }
+        
+        async function updateUI() {
+            const approval = await fetchApprovals();
+            const status = document.getElementById('approvalStatus');
+            const approveBtn = document.getElementById('approveBtn');
+            const rejectBtn = document.getElementById('rejectBtn');
+            const statusBadge = document.getElementById('pageStatusBadge');
+            
+            if (approval && approval.status) {
+                if (approval.status === 'approved') {
+                    status.innerHTML = '<div class="alert alert-success">Página aprovada!</div>';
+                    statusBadge.textContent = 'Aprovada';
+                    statusBadge.classList.remove('bg-danger');
+                    statusBadge.classList.add('bg-success');
+                    approveBtn.disabled = true;
+                    rejectBtn.disabled = false;
+                } else {
+                    status.innerHTML = '<div class="alert alert-danger">Página rejeitada!</div>';
+                    statusBadge.textContent = 'Rejeitada';
+                    statusBadge.classList.remove('bg-success');
+                    statusBadge.classList.add('bg-danger');
+                    approveBtn.disabled = false;
+                    rejectBtn.disabled = true;
+                }
+            } else {
+                status.innerHTML = '';
+                statusBadge.textContent = 'Inválida';
+                statusBadge.classList.remove('bg-success');
+                statusBadge.classList.add('bg-danger');
+                approveBtn.disabled = false;
+                rejectBtn.disabled = false;
+            }
+        }
+        
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', updateUI);
+    </script>
+</body>
+</html>
